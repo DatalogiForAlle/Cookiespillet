@@ -5,7 +5,7 @@
 
 {% block content %}
 <h1>Velkommen til Cookiespillet</h1>
-<img class="bookcover" src="{% static 'images/dfp.jpg' %}">
+<img class="cookie-stockphoto" src="{% static 'images/Cookie-stockphoto.jpg' %}">
 {% if user.is_authenticated %}
 <p>Hej {{ user.email }}!</p>
 <p><a href="{% url 'account_logout' %}">Log Out</a></p>
