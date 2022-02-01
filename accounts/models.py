@@ -9,6 +9,5 @@ class CustomUser(AbstractUser):
     we might want to customize it later on (by adding fields and so on).
     """
 
-    pass
-    # def __str__(self):
-    #    return f"{self.username} {self.email}"
+    def __str__(self):
+        return f"{self.username} {self.email}"
