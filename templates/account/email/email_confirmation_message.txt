@@ -1,0 +1,14 @@
+{% extends "account/email/base_message.txt" %}
+{% load account %}
+
+{% block content %}
+{% autoescape off %}
+{% user_display user as user_display %}
+
+Du modtager denne email fordi brugeren {{ user_display }} har angivet din email-adresse 
+for at oprette en konto på Cookiespillet.dk.
+
+Hvis dette er korrekt, kan du bekræfte på {{ activate_url }}.
+
+{% endautoescape %}
+{% endblock %}

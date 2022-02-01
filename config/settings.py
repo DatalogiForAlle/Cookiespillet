@@ -141,6 +141,9 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "accounts.CustomUser"
 
+# Email settings
+DEFAULT_FROM_EMAIL = "Markedsspillet <markedsspillet@dataekspeditioner.dk>"
+
 # django-allauth config
 LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "home"
