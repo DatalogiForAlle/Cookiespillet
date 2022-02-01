@@ -1,0 +1,30 @@
+{% extends "_base.html" %}
+{% load account %}
+
+{% block head_title %}Bekræft email-adresse{% endblock %}
+
+
+{% block content %}
+<h2>Bekræft email-adresse</h2>
+
+{% if confirmation %}
+
+{% user_display confirmation.email_address.user as user_display %}
+
+<p>Bekræft venligst, at <a href="mailto:{{ confirmation.email_address.email }}">
+        {{ confirmation.email_address.email }}</a> er din emailadresse.</p>
+
+<form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
+    {% csrf_token %}
+    <button class="btn btn-primary" type="submit">Bekræft</button>
+</form>
+
+{% else %}
+
+
+Dette link til email-bekræftelse er udløbet eller ugyldigt. Vær venlig at
+oprette en ny forespørgsel om bekræftelse af email: <a href="{% url 'account_email' %}">.</a>.</p>
+
+{% endif %}
+
+{% endblock %}
