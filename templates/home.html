@@ -1,18 +1,143 @@
-{% extends '_base.html' %}
+{% extends "_base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-{% block title %}Cookiespillet{% endblock title %}
+{% block title %}Hjem{% endblock %}
 
 {% block content %}
-<h1>Velkommen til Cookiespillet</h1>
-<img class="cookie-stockphoto" src="{% static 'images/Cookie-stockphoto.jpg' %}">
-{% if user.is_authenticated %}
-<p>Hej {{ user.email }}!</p>
-<p><a href="{% url 'account_logout' %}">Log Out</a></p>
-{% else %}
-<p>You are not logged in</p>
-<p><a href="{% url 'account_login' %}">Log In</a> |
-    <a href="{% url 'account_signup' %}">Sign Up</a>
-</p>
-{% endif %}
+
+<h4 class="mb-4">Velkommen til Cookiespillet</h4>
+
+<div class="row">
+    <!-- Col with options for "traders" -->
+    <div class="col col-12 col-lg-6">
+        <div class="card">
+            <div class="card-header">Deltag i et spil</div>
+
+            <div class="card-body container">
+
+
+            </div>
+        </div>
+    </div>
+    <!-- Col with options for "hosts" -->
+
+    <div class="col col-12 col-lg-6 mt-4 mb-5 my-lg-0">
+        <div class="card mb-4">
+            <div class="card-header">
+                Opret et nyt spil
+            </div>
+            <div class="card-body container">
+                {% if user.is_authenticated %}
+
+                <p>Opret et spil, hvis du ønsker at være game master for et spil med andre deltagere: </p>
+                <div class="d-flex justify-content-center mb-4">
+                    <a class="pr-2" href="{}">
+                        <button class="btn btn-primary">
+                            Opret nyt spil
+                        </button>
+                    </a>
+                </div>
+                <!--
+                <p class="mt-3">Her kan du finde de spil, du evt. har oprettet tidligere:</p>
+                <div class="d-flex justify-content-center p">
+                    <a class="pl-2 mb-3" href="{}">
+                        <button class="btn btn-primary">
+                            Mine markeder
+                        </button>
+                    </a>
+                </div>
+                -->
+
+                {% else %}
+                <p class="mt-2">Når du opretter et nyt spil, får du automatisk rollen som 'game master'. Ønsker du at
+                    oprette et nyt spil?
+                    Eller genbesøge et spil, du har oprettet tidligere?</p>
+                <div class="d-flex justify-content-center p">
+                    <a class="mr-2" href="{% url 'account_login' %}">
+                        <button class="btn btn-primary">
+                            Log på
+                        </button>
+                    </a>
+                </div>
+
+                <p class="mt-4">Hvis du ikke har en konto, kan du oprette en her: </p>
+
+                <div class="d-flex mb-2 justify-content-center">
+
+                    <a class="ml-2" href="{% url 'account_signup' %}">
+                        <button class="btn btn-primary">
+                            Opret ny konto
+                        </button>
+                    </a>
+                </div>
+
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock content %}
+
+
+
+{% block footer %}
+
+<footer id="footer" class="bg-light" style="position:absolute; bottom:0; width:100%;">
+    <!-- footer when size >= large -->
+    <nav class="py-3 d-none d-lg-block bg-light">
+        <div class="container">
+            <div class="d-flex text-center justify-content-between flex-row">
+                <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+                        class="pt-4 pb-5 pb-md-0" width="240" alt="dataekspeditioner-logo"></a>
+                <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-5"
+                        width="310" alt="Københavns Universitet"></a>
+                <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}"
+                        class="pt-1 pr-3" width="110" alt="Novo Nordisk Fonden"></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- footer when small <= size < largen -->
+    <div class="d-none d-sm-block d-lg-none">
+        <nav class="py-4 px-sm-5 bg-light">
+            <div class="d-flex justify-content-between flex-row bg-light">
+                <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+                        class="pt-3 pl-3" width="150" alt="dataekspeditioner-logo"></a>
+                <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-2"
+                        width="150" alt="Københavns Universitet"></a>
+                <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}"
+                        class="pr-3" width="80" alt="Novo Nordisk Fonden"></a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- footer when size < small -->
+    <div class="d-sm-none">
+        <nav class="py-4 px-sm-5 bg-light">
+            <div class="d-flex justify-content-between flex-row bg-light">
+                <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+                        class="pt-2 pl-2" width="130" alt="dataekspeditioner-logo"></a>
+                <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-2"
+                        width="120" alt="Københavns Universitet"></a>
+                <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}"
+                        class="pr-3" width="70" alt="Novo Nordisk Fonden"></a>
+            </div>
+        </nav>
+    </div>
+
+</footer>
+
+{% endblock footer %}
+
+{% block javascript%}
+
+{% if request.session.market_id %}
+<script>
+    // if client has already joined a game, fill out name field
+    document.getElementById('id_name').value = "{{ request.session.username }}"
+</script>
+{% endif %}
+
+{% endblock javascript%}
