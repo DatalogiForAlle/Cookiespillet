@@ -15,8 +15,13 @@
             <div class="card-header">Deltag i et spil</div>
 
             <div class="card-body container">
-
-
+                    <!-- Content if client has not joined a market -->
+                    <form action="{% url 'join_game' %}" method="post">{% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Deltag i spil" class="btn btn-primary my-2">
+                        </div>
+                    </form>
             </div>
         </div>
     </div>
@@ -133,7 +138,7 @@
 
 {% block javascript%}
 
-{% if request.session.market_id %}
+{% if request.session.game_id %}
 <script>
     // if client has already joined a game, fill out name field
     document.getElementById('id_name').value = "{{ request.session.username }}"

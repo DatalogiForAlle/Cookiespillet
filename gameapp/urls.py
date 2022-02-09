@@ -1,8 +1,12 @@
 from django.urls import path
-from .views import HomePageView
+
+# from .views import HomePageView
 from . import views
 
 urlpatterns = [
-    path("", HomePageView.as_view(), name="home"),
+    path("", views.home, name="home"),
     path("create_game/", views.create_game, name="create_game"),
+    path("join_game/", views.join_game, name="join_game"),
+    path("<game_id>/monitor/", views.monitor, name="monitor"),
+    path("<game_id>/play/", views.play, name="play"),
 ]

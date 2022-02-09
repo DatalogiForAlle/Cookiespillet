@@ -5,12 +5,10 @@ from django.utils.crypto import get_random_string
 
 def new_unique_game_id():
     """
-    Create a new unique game ID (8 alphabetic chars & numbers 1-9)
+    Create a new unique game ID (8 alphabetic chars)
     """
     while True:
-        game_id = get_random_string(
-            8, allowed_chars="ABCDEFGHIJKLMSOPQRSTUVXYZ123456789"
-        )
+        game_id = get_random_string(8, allowed_chars="ABCDEFGHIJKLMSOPQRSTUVXYZ")
         if not Game.objects.filter(game_id=game_id).exists():
             break
     return game_id
