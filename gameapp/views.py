@@ -16,7 +16,7 @@ def add_context_for_join_form(context, request):
         if Student.objects.filter(id=request.session["student_id"]).exists():
             student = Student.objects.get(id=request.session["student_id"])
             # If trader has been removed from market
-            if student.removed_from_market:
+            if student.removed_from_game:
                 request.session["removed_from_game"] = True
 
         # If trader has been deleted from database
@@ -97,4 +97,4 @@ def join_game(request):
         return redirect(reverse("play", args=(game.game_id,)))
 
     context = add_context_for_join_form({"form": form}, request)
-    return render(request, "game/home.html", context)
+    return render(request, "home.html", context)

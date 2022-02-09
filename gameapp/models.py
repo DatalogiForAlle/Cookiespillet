@@ -51,7 +51,7 @@ class Student(models.Model):
     score = models.IntegerField()
 
     # Nice to have, lærer skal kunne fjerne spillere med upassende navne
-    # removed_from_game = models.BooleanField(default=False)
+    removed_from_game = models.BooleanField(default=False)
 
 
 class Result(models.Model):
