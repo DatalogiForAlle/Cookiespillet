@@ -79,8 +79,7 @@ def join_game(request):
 
         new_student = form.save(commit=False)
         new_student.game = game
-        # new_student.balance = game.initial_balance
-        # new_student.round_joined = game.round
+        new_student.score = 0
         new_student.save()
 
         request.session["student_id"] = new_student.pk
