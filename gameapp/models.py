@@ -43,6 +43,17 @@ class Game(models.Model):
             self.game_id = new_unique_game_id()
         super(Game, self).save(*args, **kwargs)
 
+    def active_students(self):
+        """
+        Returns a query set of all active traders on the market.
+        A trader is 'active' if he has not declared bankruptcy and has not been removed from the market.
+        """
+        active_students = Student.objects.filter(
+            game=self,
+            removed_from_game=False,
+        )
+        return active_students
+
 
 class Student(models.Model):
     context_object_name = "Student"

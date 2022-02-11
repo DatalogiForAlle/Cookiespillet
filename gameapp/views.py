@@ -1,5 +1,5 @@
 from django.urls import reverse
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_GET, require_POST
 from .forms import StudentForm
@@ -32,7 +32,7 @@ def add_context_for_join_form(context, request):
 @require_GET
 def home(request):
     # If the client is following an invitation link to a market
-    if "market_id" in request.GET:
+    if "game_id" in request.GET:
         # Fill out the market_id field in the form
         form = StudentForm(initial={"game_id": request.GET["game_id"]})
 
@@ -58,7 +58,14 @@ def create_game(request):
 def monitor(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
 
-    context = {"game_id": game_id}
+    # Only the user who created the market has permission to monitor page
+    if not request.user == game.created_by:
+        return HttpResponseRedirect(reverse("home"))
+
+    context = {
+        "game": game,
+        "game_id": game_id,
+    }
 
     return render(request, "monitor.html", context)
 
@@ -98,3 +105,15 @@ def join_game(request):
 
     context = add_context_for_join_form({"form": form}, request)
     return render(request, "home.html", context)
+
+
+@require_GET
+@login_required
+def student_table(request, game_id):
+    game = get_object_or_404(Game, game_id=game_id)
+
+    # If user is not the creator of the game, redirect to home page
+    if not request.user == game.created_by:
+        return HttpResponseRedirect(reverse("home"))
+
+    return render(request, "student_table.html", {"game": game})

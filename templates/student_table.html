@@ -1,0 +1,28 @@
+<p>Alle spillere, ordnet efter deres score.</p>
+    <div class="table-responsive">
+        <table class="table table-striped mb-5" id="trader_status_table"> 
+
+            <thead id="student_status_thead">
+                <!-- Since allow students to visit the monitor page when game is over & since we assume they use small screen devices
+                    we have to make the table reponsive in different ways
+                -->
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Navn</th>
+                    <th scope="col">Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in game.active_students %}
+                    <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.score }}</td>
+                        {% if not market.game_over %}
+                            <td><a href="#" onclick="prepare_remove_trader({{ student.id }}, '{{ student.name }}')">Fjern</a></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
