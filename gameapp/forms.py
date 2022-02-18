@@ -20,7 +20,7 @@ class StudentForm(forms.ModelForm):
             "name": "Navnet, du vælger her, vil være synligt for de andre deltagere i spillet.",
         }
 
-    def clean_market_id(self):
+    def clean_game_id(self):
         """Additional validation of the form's game_id field"""
         game_id = self.cleaned_data["game_id"].upper()
 

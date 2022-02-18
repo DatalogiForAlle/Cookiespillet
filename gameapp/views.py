@@ -18,13 +18,6 @@ def add_context_for_join_form(context, request):
         # If trader is in database
         if Student.objects.filter(id=request.session["student_id"]).exists():
             student = Student.objects.get(id=request.session["student_id"])
-            # If trader has been removed from market
-            if student.removed_from_game:
-                request.session["removed_from_game"] = True
-
-        # If trader has been deleted from database
-        else:
-            request.session["removed_from_game"] = True
 
         # We add this market to the context to notify the client
         game = get_object_or_404(Game, game_id=request.session["game_id"])
@@ -121,17 +114,14 @@ def student_table(request, game_id):
     return render(request, "student_table.html", {"game": game})
 
 
-class DeleteView(SuccessMessageMixin, DeleteView):
+class DeleteView(DeleteView):
     model = Student
     success_url = reverse_lazy("monitor")
-    success_message = "Deleted..."
 
     def delete(self, request, *args, **kwargs):
         self.object = self.get_object()
         name = self.object.name
         request.session["name"] = name  # name will be change according to your need
-        message = "Spiller (" + request.session["name"] + ")" + " slettet"
-        messages.success(self.request, message)
         return super(DeleteView, self).delete(request, *args, **kwargs)
 
     def get_success_url(self):

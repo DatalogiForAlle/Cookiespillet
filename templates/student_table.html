@@ -22,7 +22,7 @@
                             <td>        
                                 <form action="{% url 'delete_view' pk=student.pk %}" method="POST">
                                     {% csrf_token %}
-                                    <input class="btn btn-default btn-danger" type="submit" value="Delete"/>
+                                    <input class="btn btn-default btn-danger" type="submit" value="Fjern"/>
                                   </form>
                             <td>
                         {% endif %}

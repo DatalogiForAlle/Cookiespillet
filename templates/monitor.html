@@ -44,11 +44,11 @@
     </span>
 </h4> 
 
-<div id="trader_table" class="mb-3">
+<div id="student_table" class="mb-3">
     {% include 'student_table.html' %}
 </div>
 
-<!-- Update trader status table every x seconds. Will only trigger next round when given criteria are met -->
+<!-- Update student status table every x seconds. Will only trigger next round when given criteria are met -->
   
 <div 
 hx-get="{% url 'student_table' game.game_id %}"
