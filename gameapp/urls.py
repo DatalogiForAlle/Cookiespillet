@@ -10,4 +10,5 @@ urlpatterns = [
     path("<game_id>/monitor/", views.monitor, name="monitor"),
     path("<game_id>/play/", views.play, name="play"),
     path("<game_id>/student_table/", views.student_table, name="student_table"),
+    path(r"delete-entry/(<pk>\d+)/", views.DeleteView.as_view(), name="delete_view"),
 ]

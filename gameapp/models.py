@@ -50,7 +50,6 @@ class Game(models.Model):
         """
         active_students = Student.objects.filter(
             game=self,
-            removed_from_game=False,
         )
         return active_students
 
@@ -60,9 +59,6 @@ class Student(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     name = models.CharField(max_length=16)
     score = models.IntegerField()
-
-    # Nice to have, lærer skal kunne fjerne spillere med upassende navne
-    removed_from_game = models.BooleanField(default=False)
 
 
 class Result(models.Model):

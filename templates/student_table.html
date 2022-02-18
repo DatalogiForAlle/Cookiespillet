@@ -18,8 +18,13 @@
                         <th scope="row">{{ forloop.counter }}</th>
                         <td>{{ student.name }}</td>
                         <td>{{ student.score }}</td>
-                        {% if not market.game_over %}
-                            <td><a href="#" onclick="prepare_remove_trader({{ student.id }}, '{{ student.name }}')">Fjern</a></td>
+                        {% if not game.game_over %}
+                            <td>        
+                                <form action="{% url 'delete_view' pk=student.pk %}" method="POST">
+                                    {% csrf_token %}
+                                    <input class="btn btn-default btn-danger" type="submit" value="Delete"/>
+                                  </form>
+                            <td>
                         {% endif %}
                     </tr>
                 {% endfor %}

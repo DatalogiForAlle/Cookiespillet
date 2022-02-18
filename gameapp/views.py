@@ -1,6 +1,9 @@
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
+from django.views.generic.edit import DeleteView
 from django.views.decorators.http import require_GET, require_POST
 from .forms import StudentForm
 from .models import Game, Student
@@ -66,7 +69,6 @@ def monitor(request, game_id):
         "game": game,
         "game_id": game_id,
     }
-
     return render(request, "monitor.html", context)
 
 
@@ -117,3 +119,20 @@ def student_table(request, game_id):
         return HttpResponseRedirect(reverse("home"))
 
     return render(request, "student_table.html", {"game": game})
+
+
+class DeleteView(SuccessMessageMixin, DeleteView):
+    model = Student
+    success_url = reverse_lazy("monitor")
+    success_message = "Deleted..."
+
+    def delete(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        name = self.object.name
+        request.session["name"] = name  # name will be change according to your need
+        message = "Spiller (" + request.session["name"] + ")" + " slettet"
+        messages.success(self.request, message)
+        return super(DeleteView, self).delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        return reverse("monitor", kwargs={"game_id": self.object.game_id})
