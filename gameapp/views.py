@@ -1,8 +1,7 @@
+from datetime import datetime
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import DeleteView
 from django.views.decorators.http import require_GET, require_POST
 from .forms import StudentForm
@@ -65,10 +64,14 @@ def monitor(request, game_id):
     return render(request, "monitor.html", context)
 
 
-def play(request, game_id):
+def play(request, game_id, name):
     game = get_object_or_404(Game, game_id=game_id)
+    student = get_object_or_404(Student, name=name)
 
-    context = {"game_id": game_id}
+    context = {
+        "game_id": game_id,
+        "student_name": student.name,
+    }
 
     return render(request, "play.html", context)
 
@@ -96,7 +99,7 @@ def join_game(request):
         #        )
 
         # After joining the game, the player is redirected to the play page
-        return redirect(reverse("play", args=(game.game_id,)))
+        return redirect(reverse("play", args=(game.game_id, new_student.name)))
 
     context = add_context_for_join_form({"form": form}, request)
     return render(request, "home.html", context)
@@ -126,3 +129,10 @@ class DeleteView(DeleteView):
 
     def get_success_url(self):
         return reverse("monitor", kwargs={"game_id": self.object.game_id})
+
+
+def cookie1(request, name):
+    student = get_object_or_404(Student, name=name)
+    student.started_playing_at = datetime.now()
+    student.save()
+    return render(request, "cookie1.html")

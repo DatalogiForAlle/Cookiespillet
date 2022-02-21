@@ -1,3 +1,25 @@
-play.html
+{% extends "_base.html" %}
+{% load crispy_forms_tags %}
 
-<h5 class="mb-4">Det her er play.html for Spil-ID: {{ game_id }}</h5>
+{% block title %}Start{% endblock %}
+
+
+{% block content %}
+<h4 class="mb-4">Hej <i>{{ student_name }}</i>!</h5>
+<h4 class="mb-4">Klar til at spillet Cookiespillet (Spil-ID: {{ game_id }})</h5>
+<h6>Regler:</h6>
+    <p>
+        I spillet bliver du præsenteret for et antal dialogbokse hvor du skal trykke på de valgmuligheder hvor du giver lov til så få cookies, notifikationer og tilladelser som muligt. Din score beregnes som en kombination af den tid du bruger, sammen med antallet af fejl du begår. Du skal derfor være hurtig til at klikke igennem dialogboksene, ligesom du i virkeligheden hurtigt vil klikke på en sådan boks væk. 
+    </p>   
+    <p>
+        Når du trykker "Start dit spil" er spillet i gang og uret tikker!
+    </p>
+
+    <form action="{% url 'cookie1' name=student_name %}" method="post">{% csrf_token %}
+        {{ form|crispy }}
+        <div class="d-flex justify-content-center">
+            <input type="submit" value="Start dit spil!" class="btn btn-primary my-2">
+        </div>
+    </form>
+
+{% endblock content %}

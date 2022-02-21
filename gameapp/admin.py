@@ -17,13 +17,16 @@ class StudentAdmin(admin.ModelAdmin):
         "game",
         "name",
         "score",
+        "correct_cookies",
+        "started_playing_at",
+        "finished_playing_at",
     )
 
 
-class ResultAdmin(admin.ModelAdmin):
-    list_display = ("student",)
+# class ResultAdmin(admin.ModelAdmin):
+#    list_display = ("student",)
 
 
 admin.site.register(Game, GameAdmin)
 admin.site.register(Student, StudentAdmin)
-admin.site.register(Result, ResultAdmin)
+# admin.site.register(Result, ResultAdmin)

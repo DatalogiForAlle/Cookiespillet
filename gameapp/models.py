@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.crypto import get_random_string
+from pytz import timezone
 
 
 def new_unique_game_id():
@@ -59,6 +60,9 @@ class Student(models.Model):
     game = models.ForeignKey(Game, on_delete=models.CASCADE)
     name = models.CharField(max_length=16)
     score = models.IntegerField()
+    correct_cookies = models.IntegerField(default=0)
+    started_playing_at = models.TimeField(auto_now_add=True)
+    finished_playing_at = models.TimeField(auto_now_add=True)
 
 
 class Result(models.Model):
