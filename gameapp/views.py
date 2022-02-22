@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
@@ -133,6 +133,38 @@ class DeleteView(DeleteView):
 
 def cookie1(request, name):
     student = get_object_or_404(Student, name=name)
-    student.started_playing_at = datetime.now()
+    student.start_time = datetime.now(timezone.utc)
     student.save()
-    return render(request, "cookie1.html")
+
+    context = {
+        "student_name": student.name,
+    }
+
+    return render(request, "cookies/cookie1.html", context)
+
+
+def cookie_final(request, name):
+    student = get_object_or_404(Student, name=name)
+    student.correct_cookies += 1
+    student.save()
+
+    context = {
+        "student_name": student.name,
+    }
+
+    return render(request, "cookies/cookie_final.html", context)
+
+
+def cookie_end_screen(request, name):
+    student = get_object_or_404(Student, name=name)
+    student.finish_time = datetime.now(timezone.utc)
+    student.time_spent = student.calculate_time_spent()
+    student.correct_cookies += 1
+    student.score = student.time_spent * student.correct_cookies
+    student.save()
+
+    context = {
+        "student_name": student.name,
+    }
+
+    return render(request, "cookies/cookie_end_screen.html", context)

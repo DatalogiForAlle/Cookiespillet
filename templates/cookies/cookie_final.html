@@ -1,0 +1,9 @@
+{% load crispy_forms_tags %}
+cookie_final.html
+
+<form action="{% url 'cookie_end_screen' name=student_name %}" method="post">{% csrf_token %}
+    {{ form|crispy }}
+    <div class="d-flex justify-content-center">
+        <input type="submit" value="Ja tak" class="btn btn-primary my-2">
+    </div>
+</form>

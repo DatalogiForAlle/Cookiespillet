@@ -11,6 +11,11 @@ urlpatterns = [
     # path("<game_id>/play/", views.play, name="play"),
     path("<game_id>/student_table/", views.student_table, name="student_table"),
     path("<game_id>/<name>/play/", views.play, name="play"),
-    path("<name>/cookie1/", views.cookie1, name="cookie1"),
     path(r"delete-entry/(<pk>\d+)/", views.DeleteView.as_view(), name="delete_view"),
+    ##Cookies:
+    path("<name>/cookie1/", views.cookie1, name="cookie1"),
+    path("<name>/cookie_final/", views.cookie_final, name="cookie_final"),
+    path(
+        "<name>/cookie_end_screen/", views.cookie_end_screen, name="cookie_end_screen"
+    ),
 ]

@@ -1,7 +1,8 @@
+from django.utils.timezone import utc
+from datetime import datetime, timedelta
 from django.db import models
 from django.contrib.auth import get_user_model
 from django.utils.crypto import get_random_string
-from pytz import timezone
 
 
 def new_unique_game_id():
@@ -61,8 +62,13 @@ class Student(models.Model):
     name = models.CharField(max_length=16)
     score = models.IntegerField()
     correct_cookies = models.IntegerField(default=0)
-    started_playing_at = models.TimeField(auto_now_add=True)
-    finished_playing_at = models.TimeField(auto_now_add=True)
+    start_time = models.DateTimeField(auto_now_add=True, blank=True)
+    time_spent = models.FloatField(default=0.0)
+
+    def calculate_time_spent(self):
+        now = datetime.utcnow().replace(tzinfo=utc)
+        timediff = now - self.start_time
+        return timediff.total_seconds()
 
 
 class Result(models.Model):

@@ -18,8 +18,8 @@ class StudentAdmin(admin.ModelAdmin):
         "name",
         "score",
         "correct_cookies",
-        "started_playing_at",
-        "finished_playing_at",
+        "start_time",
+        "time_spent",
     )
 
 
