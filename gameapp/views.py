@@ -165,19 +165,28 @@ def cookieX(request, name):
     }
     template = "cookies/cookie" + str(student.current_cookie) + ".html"
     student.current_cookie += 1
-    student.save()
+    update_score(student)
     return render(request, template, context)
 
 
 def cookie_end_screen(request, name):
     student = get_object_or_404(Student, name=name)
-    student.time_spent = round(student.calculate_time_spent(), 2)
-    student.correct_cookies += 1
-    student.score = student.time_spent * student.correct_cookies
-    student.save()
+    try:
+        flag = int(request.POST["flag"])
+        if flag == 1:
+            student.correct_cookies += 1
+    except KeyError:
+        print("Where is my flag?")
 
     context = {
         "student_name": student.name,
     }
 
+    update_score(student)
     return render(request, "cookies/cookie_end_screen.html", context)
+
+
+def update_score(student):
+    student.time_spent = round(student.calculate_time_spent(), 2)
+    student.score = student.correct_cookies * 1000 - student.time_spent * 100
+    student.save()

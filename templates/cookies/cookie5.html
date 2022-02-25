@@ -3,7 +3,16 @@ cookie5.html (final cookie)
 
 <form action="{% url 'cookie_end_screen' name=student_name %}" method="post">{% csrf_token %}
     {{ form|crispy }}
+    <input type="hidden" name="flag" value="1" />
     <div class="d-flex justify-content-center">
         <input type="submit" value="Ja tak" class="btn btn-primary my-2">
+    </div>
+</form>
+
+<form action="{% url 'cookie_end_screen' name=student_name %}" method="post">{% csrf_token %}
+    {{ form|crispy }}
+    <input type="hidden" name="flag" value="0" />
+    <div class="d-flex justify-content-center">
+        <input type="submit" value="Nej tak" class="btn btn-primary my-2">
     </div>
 </form>
