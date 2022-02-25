@@ -62,6 +62,7 @@ class Student(models.Model):
     name = models.CharField(max_length=16)
     score = models.IntegerField()
     correct_cookies = models.IntegerField(default=0)
+    wrong_cookies = models.IntegerField(default=0)
     start_time = models.DateTimeField(auto_now_add=True, blank=True)
     time_spent = models.FloatField(default=0.0)
     current_cookie = models.IntegerField(default=0)

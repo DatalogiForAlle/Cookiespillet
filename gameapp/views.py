@@ -157,6 +157,8 @@ def cookieX(request, name):
         flag = int(request.POST["flag"])
         if flag == 1:
             student.correct_cookies += 1
+        else:
+            student.wrong_cookies += 1
     except KeyError:
         print("Where is my flag?")
 
@@ -175,6 +177,8 @@ def cookie_end_screen(request, name):
         flag = int(request.POST["flag"])
         if flag == 1:
             student.correct_cookies += 1
+        else:
+            student.wrong_cookies += 1
     except KeyError:
         print("Where is my flag?")
 
@@ -188,5 +192,9 @@ def cookie_end_screen(request, name):
 
 def update_score(student):
     student.time_spent = round(student.calculate_time_spent(), 2)
-    student.score = student.correct_cookies * 1000 - student.time_spent * 100
+    student.score = (
+        student.correct_cookies * 1000
+        - student.time_spent * 100
+        - student.wrong_cookies * 50
+    )
     student.save()

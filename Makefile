@@ -23,6 +23,9 @@ createsuperuser: ## docker-compose exec web python manage.py createsuperuser
 test: ## docker-compose exec web python manage.py test
 	docker-compose exec web python manage.py test
 
+makemigrations: ##docker-compose exec web python manage.py makemigrations
+	docker-compose exec web python manage.py makemigrations
+
 migrate: ## docker-compose exec web python manage.py migrate
 	docker-compose exec web python manage.py migrate
 

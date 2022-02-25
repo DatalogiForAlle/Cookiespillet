@@ -10,7 +10,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Navn</th>
                     <th scope="col">Score</th>
-                    <th scope="col">Antal rigtige</th>
+                    <th scope="col">Cookies :'(</th>
                     <th scope="col">Tid</th>
                     <th scope="col"></th>
                 </tr>
@@ -21,7 +21,7 @@
                         <th scope="row">{{ forloop.counter }}</th>
                         <td>{{ student.name }}</td>
                         <td>{{ student.score }}</td>
-                        <td>{{ student.correct_cookies }}</td>
+                        <td>{{ student.wrong_cookies }}</td>
                         <td>{{ student.time_spent }}</td>
                         {% if not game.game_over %}
                             <td>        
