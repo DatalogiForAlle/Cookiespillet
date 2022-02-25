@@ -1,6 +1,11 @@
 from datetime import datetime, timezone
 from django.urls import reverse, reverse_lazy
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
+from django.shortcuts import (
+    render,
+    redirect,
+    get_object_or_404,
+    HttpResponseRedirect,
+)
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView
 from django.views.decorators.http import require_GET, require_POST
@@ -131,34 +136,42 @@ class DeleteView(DeleteView):
         return reverse("monitor", kwargs={"game_id": self.object.game_id})
 
 
-def cookie1(request, name):
+def cookie0(request, name):
     student = get_object_or_404(Student, name=name)
-    student.start_time = datetime.now(timezone.utc)
-    student.save()
+    if student.current_cookie == 0:
+        student.start_time = datetime.now(timezone.utc)
+        student.current_cookie += 1
+        student.save()
+
+        context = {
+            "student_name": student.name,
+        }
+        return render(request, "cookies/cookie0.html", context)
+    else:
+        return reverse("home")
+
+
+def cookieX(request, name):
+    student = get_object_or_404(Student, name=name)
+    try:
+        flag = int(request.POST["flag"])
+        if flag == 1:
+            student.correct_cookies += 1
+    except KeyError:
+        print("Where is my flag?")
 
     context = {
         "student_name": student.name,
     }
-
-    return render(request, "cookies/cookie1.html", context)
-
-
-def cookie_final(request, name):
-    student = get_object_or_404(Student, name=name)
-    student.correct_cookies += 1
+    template = "cookies/cookie" + str(student.current_cookie) + ".html"
+    student.current_cookie += 1
     student.save()
-
-    context = {
-        "student_name": student.name,
-    }
-
-    return render(request, "cookies/cookie_final.html", context)
+    return render(request, template, context)
 
 
 def cookie_end_screen(request, name):
     student = get_object_or_404(Student, name=name)
-    student.finish_time = datetime.now(timezone.utc)
-    student.time_spent = student.calculate_time_spent()
+    student.time_spent = round(student.calculate_time_spent(), 2)
     student.correct_cookies += 1
     student.score = student.time_spent * student.correct_cookies
     student.save()

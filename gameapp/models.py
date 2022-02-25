@@ -64,6 +64,7 @@ class Student(models.Model):
     correct_cookies = models.IntegerField(default=0)
     start_time = models.DateTimeField(auto_now_add=True, blank=True)
     time_spent = models.FloatField(default=0.0)
+    current_cookie = models.IntegerField(default=0)
 
     def calculate_time_spent(self):
         now = datetime.utcnow().replace(tzinfo=utc)

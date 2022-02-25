@@ -15,7 +15,7 @@
         Når du trykker "Start dit spil" er spillet i gang og uret tikker!
     </p>
 
-    <form action="{% url 'cookie1' name=student_name %}" method="post">{% csrf_token %}
+    <form action="{% url 'cookie0' name=student_name %}" method="post">{% csrf_token %}
         {{ form|crispy }}
         <div class="d-flex justify-content-center">
             <input type="submit" value="Start dit spil!" class="btn btn-primary my-2">

@@ -14,6 +14,9 @@ up: ## docker-compose up -d --build
 down: ## docker-compose down
 	docker-compose down
 
+restart: ## down & up & logs
+	docker-compose down && docker-compose up -d --build && docker-compose logs
+
 createsuperuser: ## docker-compose exec web python manage.py createsuperuser
 	docker-compose exec web python manage.py createsuperuser
 
@@ -28,3 +31,4 @@ logs: ## docker-compose logs
 
 collectstatic: ## docker-compose exec web python manage.py collectstatic
 	docker-compose exec web python manage.py collectstatic
+
