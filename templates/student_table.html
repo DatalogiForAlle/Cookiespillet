@@ -11,7 +11,7 @@
                     <th scope="col">Navn</th>
                     <th scope="col">Score</th>
                     <th scope="col">Cookies :'(</th>
-                    <th scope="col">Tid</th>
+                    <th scope="col">Tid (s)</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -35,4 +35,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        <script>
+            $('#trader_status_table').DataTable();
+        </script>
     </div>
