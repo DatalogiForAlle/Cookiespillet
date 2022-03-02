@@ -6,7 +6,7 @@ from .models import Game, Student, Result
 class GameAdmin(admin.ModelAdmin):
     list_display = (
         "game_id",
-        "game_over",
+        "game_started",
         "created_at",
         "created_by",
     )

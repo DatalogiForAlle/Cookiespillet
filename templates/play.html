@@ -12,14 +12,27 @@
         I spillet bliver du præsenteret for et antal dialogbokse hvor du skal trykke på de valgmuligheder hvor du giver lov til så få cookies, notifikationer og tilladelser som muligt. Din score beregnes som en kombination af den tid du bruger, sammen med antallet af fejl du begår. Du skal derfor være hurtig til at klikke igennem dialogboksene, ligesom du i virkeligheden hurtigt vil klikke på en sådan boks væk. 
     </p>   
     <p>
-        Når du trykker "Start dit spil" er spillet i gang og uret tikker!
+        Når din lærer trykker "Start spil!" starter spillet automatisk!
     </p>
-
+<!-- 
     <form action="{% url 'cookie0' name=student_name %}" method="post">{% csrf_token %}
         {{ form|crispy }}
         <div class="d-flex justify-content-center">
             <input type="submit" value="Start dit spil!" class="btn btn-primary my-2">
         </div>
     </form>
+-->
+
+<script>
+    window.setInterval('refresh()', 1000); 	
+    // Call a function every 10000 milliseconds 
+    // (OR 10 seconds).
+
+    // Refresh or reload page.
+    function refresh() {
+        window .location.reload();
+    }
+</script>
 
 {% endblock content %}
+

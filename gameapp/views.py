@@ -57,6 +57,13 @@ def create_game(request):
 
 def monitor(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
+    try:
+        flag = int(request.POST["flag"])
+        if flag == 1:
+            game.game_started = True
+            game.save()
+    except KeyError:
+        print("Where is my flag?")
 
     # Only the user who created the market has permission to monitor page
     if not request.user == game.created_by:
@@ -77,6 +84,8 @@ def play(request, game_id, name):
         "game_id": game_id,
         "student_name": student.name,
     }
+    if game.game_started == True:
+        return redirect(reverse("cookie0", args=(student.name,)), context)
 
     return render(request, "play.html", context)
 
@@ -136,6 +145,16 @@ class DeleteView(DeleteView):
         return reverse("monitor", kwargs={"game_id": self.object.game_id})
 
 
+def update_score(student):
+    student.time_spent = round(student.calculate_time_spent(), 2)
+    student.score = (
+        student.correct_cookies * 1000
+        - student.time_spent * 100
+        - student.wrong_cookies * 50
+    )
+    student.save()
+
+
 def cookie0(request, name):
     student = get_object_or_404(Student, name=name)
     if student.current_cookie == 0:
@@ -188,13 +207,3 @@ def cookie_end_screen(request, name):
 
     update_score(student)
     return render(request, "cookies/cookie_end_screen.html", context)
-
-
-def update_score(student):
-    student.time_spent = round(student.calculate_time_spent(), 2)
-    student.score = (
-        student.correct_cookies * 1000
-        - student.time_spent * 100
-        - student.wrong_cookies * 50
-    )
-    student.save()

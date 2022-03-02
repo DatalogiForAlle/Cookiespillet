@@ -20,7 +20,7 @@ class Game(models.Model):
     context_object_name = "Game"
     game_id = models.CharField(max_length=16, primary_key=True)
     # creator_id  # Hører til den Lærer/Account som har oprettet spillet.
-    game_over = models.BooleanField(default=False)
+    game_started = models.BooleanField(default=False)
 
     # def check_game_over(self):
     #    """

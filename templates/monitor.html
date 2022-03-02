@@ -1,4 +1,5 @@
 {% extends "_base.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}Oversigt{% endblock %}
 
@@ -10,7 +11,7 @@
 
 <!-- Buttons -->
 <div class="mb-3">
-    {% if not game.game_over %}
+    {% if not game.game_started %}
     <a class="btn btn-primary" data-toggle="collapse" href="#collapseJoin" role="button" aria-expanded="false" aria-controls="collapseJoin">
         Inviter spillere
     </a>
@@ -29,24 +30,38 @@
     </div>
 </div>
 
+{% if not game.game_started %}
 <div class="mb-3">
-    {% if not game.game_over %}
+    <form action="{% url 'monitor' game_id=game.game_id  %}" method="post">{% csrf_token %}
+        {{ form|crispy }}
+        <input type="hidden" name="flag" value="1" />
+        <div class="d-flex justify-content-center">
+            <input type="submit" value="Start Spil!" class="btn btn-primary my-2">
+        </div>
+    </form>
+    </div>
+{% endif %}
+
+    <!--
+<div class="mb-3">
+    {% if not game.game_started %}
     <a class="btn btn-primary" href="#" role="button">
         Start Spil!
     </a>
     {% endif %}
 </div>
+-->
 
 <!-- Student Status -->
 <h4 class="mt-5">
-    {% if game.game_over %}
+    {% if game.game_started %}
     Scoreboard
     {% else %}
     Tilsluttede spillere:
     {% endif %}
     <span class="text-black-50">
-        {% if game.game_over %}
-            [Game is over]
+        {% if game.game_started %}
+            [Spillet er startet]
         {% endif %}
     </span>
 </h4> 

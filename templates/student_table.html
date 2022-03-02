@@ -23,7 +23,7 @@
                         <td>{{ student.score }}</td>
                         <td>{{ student.wrong_cookies }}</td>
                         <td>{{ student.time_spent }}</td>
-                        {% if not game.game_over %}
+                        {% if not game.game_started %}
                             <td>        
                                 <form action="{% url 'delete_view' pk=student.pk %}" method="POST">
                                     {% csrf_token %}

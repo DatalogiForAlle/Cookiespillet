@@ -38,12 +38,12 @@ class StudentForm(forms.ModelForm):
         cleaned_game_id = cleaned_data.get("game_id")
         if cleaned_name and cleaned_game_id:
             game = Game.objects.get(game_id=cleaned_game_id)
-            if game.game_over:
-                raise forms.ValidationError(
-                    "Dette spil er afsluttet. Ingen nye spillere kan deltage."
-                )
+            # if game.game_over:
+            #    raise forms.ValidationError(
+            #        "Dette spil er afsluttet. Ingen nye spillere kan deltage."
+            #    )
 
-            elif Student.objects.filter(name=cleaned_name, game=game).exists():
+            if Student.objects.filter(name=cleaned_name, game=game).exists():
                 raise forms.ValidationError(
                     "Der er allerede en spiller med dette navn. Vælg et andet navn."
                 )
