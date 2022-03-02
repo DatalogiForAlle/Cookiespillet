@@ -7,7 +7,9 @@
 {% block content %}
 
 <!-- Page heading-->
+{% if not game.game_started %}
 <h2 class="mb-3 mt-lg-5">Spil-ID: <span class="text-black-50">[{{ game.game_id }}]</span></h2>
+{% endif %}
 
 <!-- Buttons -->
 <div class="mb-3">

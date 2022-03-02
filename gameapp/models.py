@@ -52,8 +52,8 @@ class Game(models.Model):
         """
         active_students = Student.objects.filter(
             game=self,
-        )
-        active_students = active_students.order_by("-score")
+        ).order_by("-score")
+        # active_students = active_students.order_by("-score")
         return active_students
 
 
