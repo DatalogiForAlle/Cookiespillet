@@ -76,16 +76,22 @@ def monitor(request, game_id):
     return render(request, "monitor.html", context)
 
 
-def play(request, game_id, name):
+def play(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
-    student = get_object_or_404(Student, name=name)
+    # student = get_object_or_404(Student, name=name)
+    # student = game.active_students().filter(name=name)
+    try:
+        student = Student.objects.get(id=request.session["student_id"])
+    except:
+        # if not trader in session return to home:
+        return redirect(reverse("home"))
 
     context = {
         "game_id": game_id,
         "student_name": student.name,
     }
     if game.game_started == True:
-        return redirect(reverse("cookie0", args=(student.name,)), context)
+        return redirect(reverse("cookie0", args=()), context)
 
     return render(request, "play.html", context)
 
@@ -113,7 +119,7 @@ def join_game(request):
         #        )
 
         # After joining the game, the player is redirected to the play page
-        return redirect(reverse("play", args=(game.game_id, new_student.name)))
+        return redirect(reverse("play", args=(game.game_id,)))
 
     context = add_context_for_join_form({"form": form}, request)
     return render(request, "home.html", context)
@@ -155,8 +161,15 @@ def update_score(student):
     student.save()
 
 
-def cookie0(request, name):
-    student = get_object_or_404(Student, name=name)
+# def cookie0(request, name):
+def cookie0(request):
+    # student = get_object_or_404(Student, name=name)
+    try:
+        student = Student.objects.get(id=request.session["student_id"])
+    except:
+        # if not trader in session return to home:
+        return redirect(reverse("home"))
+
     if student.current_cookie == 0:
         student.start_time = datetime.now(timezone.utc)
         student.current_cookie += 1
@@ -170,8 +183,15 @@ def cookie0(request, name):
         return reverse("home")
 
 
-def cookieX(request, name):
-    student = get_object_or_404(Student, name=name)
+# def cookieX(request, name):
+def cookieX(request):
+    # student = get_object_or_404(Student, name=name)
+    try:
+        student = Student.objects.get(id=request.session["student_id"])
+    except:
+        # if not trader in session return to home:
+        return redirect(reverse("home"))
+
     try:
         flag = int(request.POST["flag"])
         if flag == 1:
@@ -190,8 +210,15 @@ def cookieX(request, name):
     return render(request, template, context)
 
 
-def cookie_end_screen(request, name):
-    student = get_object_or_404(Student, name=name)
+# def cookie_end_screen(request, name):
+def cookie_end_screen(request):
+    # student = get_object_or_404(Student, name=name)
+    try:
+        student = Student.objects.get(id=request.session["student_id"])
+    except:
+        # if not trader in session return to home:
+        return redirect(reverse("home"))
+
     try:
         flag = int(request.POST["flag"])
         if flag == 1:

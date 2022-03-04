@@ -1,7 +1,7 @@
 {% load crispy_forms_tags %}
 cookie3.html
 
-<form action="{% url 'cookieX' name=student_name %}" method="post">{% csrf_token %}
+<form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
     {{ form|crispy }}
     <input type="hidden" name="flag" value="1" />
     <div class="d-flex justify-content-center">
@@ -9,7 +9,7 @@ cookie3.html
     </div>
 </form>
 
-<form action="{% url 'cookieX' name=student_name %}" method="post">{% csrf_token %}
+<form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
     {{ form|crispy }}
     <input type="hidden" name="flag" value="0" />
     <div class="d-flex justify-content-center">

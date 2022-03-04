@@ -11,27 +11,6 @@
 <h2 class="mb-3 mt-lg-5">Spil-ID: <span class="text-black-50">[{{ game.game_id }}]</span></h2>
 {% endif %}
 
-<!-- Buttons -->
-<div class="mb-3">
-    {% if not game.game_started %}
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseJoin" role="button" aria-expanded="false" aria-controls="collapseJoin">
-        Inviter spillere
-    </a>
-    {% endif %}
-</div>
-
-<!-- Join Link Collapse Content-->
-<div class="collapse my-1" id="collapseJoin" >
-    <div class="card card-body">
-        <p class="mb-1">Spillere kan tilslutte sig spillet på denne adresse: </p>
-        <div class="d-flex">
-            <input class="form-control" type="text" 
-                value="{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{% url 'home' %}?game_id={{ game.game_id }}" id="join_link" style="width:350px">
-            <button class="btn btn-primary btn-sm" onclick="copy_join_link()">Kopier</button>
-        </div>
-    </div>
-</div>
-
 {% if not game.game_started %}
 <div class="mb-3">
     <form action="{% url 'monitor' game_id=game.game_id  %}" method="post">{% csrf_token %}
@@ -44,15 +23,27 @@
     </div>
 {% endif %}
 
-    <!--
-<div class="mb-3">
+<!-- Buttons -->
+<div class="d-flex justify-content-center">
     {% if not game.game_started %}
-    <a class="btn btn-primary" href="#" role="button">
-        Start Spil!
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseJoin" role="button" aria-expanded="false" aria-controls="collapseJoin">
+        Inviter spillere
     </a>
     {% endif %}
 </div>
--->
+
+
+<!-- Join Link Collapse Content-->
+<div class="collapse my-1" id="collapseJoin" >
+    <div class="card card-body">
+        <p class="mb-1">Spillere kan tilslutte sig spillet på denne adresse: </p>
+        <div class="d-flex">
+            <input class="form-control" type="text" 
+                value="{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{% url 'home' %}?game_id={{ game.game_id }}" id="join_link" style="width:350px">
+            <button class="btn btn-primary btn-sm" onclick="copy_join_link()">Kopier</button>
+        </div>
+    </div>
+</div>
 
 <!-- Student Status -->
 <h4 class="mt-5">
