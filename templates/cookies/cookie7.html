@@ -21,33 +21,34 @@
 
 
 
-<body class="cookie0">
+<body class="cookie1">
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col col-lg-2">
       </div>
       <div class="col-md-auto">
-        <div class="cookie-box0">
-          <h1>Vi respekterer beskyttelse af personoplysninger</h1>
-          <p>Med din tilladelse kan vi og vores partnere bruge præcise geoplaceringsoplysninger og identifikation gennem
-            enhedsscanning. Du kan klikke her for at acceptere vores og vores partneres behandling, som beskrevet
-            ovenfor. Alternativt kan du få adgang til mere detaljerede oplysninger og ændre dine præferencer, før du
-            samtykker eller nægter samtykke. Bemærk, at nogle former for behandling af dine personoplysninger muligvis
-            ikke kræver dit samtykke, men du har ret til at gøre indsigelse mod sådan behandling. Dine præferencer
-            gælder for en gruppe websteder. Du kan til enhver tid ændre dine præferencer ved at vende tilbage til dette
-            websted eller ved at besøge vores politik for beskyttelse af personoplysninger.</p>
-          <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
-            {{ form|crispy }}
-            <input type="hidden" name="flag" value="0" />
-            <div class="d-flex justify-content-center">
-              <input type="submit" value="Acceptér alle" class="btn btn-success my-2">
-            </div>
-          </form>
+        <div class="cookie-box1">
+          <h3>Vi passer på dine data</h3>
+          <p>Vi indsamler oplysninger om dine besøg ved hjælp af cookies for at måle, hvordan du bliver
+            brugt, så vi kan udvikle indhold og funktioner. Vi indsamler også oplysninger om dine
+            præferencer for at give dig en bedre brugeroplevelse og vise indhold, der er relevant for dig.
+
+            Vi bruger egne cookies og cookies fra tredjepart. Tredjepart kan anvende cookiedata til
+            målrettet markedsføring på egne og andres platforme. Du kan til- og fravælge cookies herunder og
+            altid se og ændre dine indstillinger i cookiepolitikken. Se hvordan vi behandler
+            personoplysninger i privatlivspolitikken</p>
           <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
             {{ form|crispy }}
             <input type="hidden" name="flag" value="1" />
             <div class="d-flex justify-content-center">
-              <input type="submit" value="Frabed alle" class="btn btn-danger my-2">
+              <input type="submit" value="Nej Tak" class="btn btn-success my-2">
+            </div>
+          </form>
+          <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
+            {{ form|crispy }}
+            <input type="hidden" name="flag" value="0" />
+            <div class="d-flex justify-content-center">
+              <input type="submit" value="Ja tak" class="btn btn-danger my-2">
             </div>
           </form>
         </div>

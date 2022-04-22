@@ -21,33 +21,27 @@
 
 
 
-<body class="cookie0">
+<body class="cookie2">
   <div class="container">
     <div class="row justify-content-md-center">
       <div class="col col-lg-2">
       </div>
       <div class="col-md-auto">
-        <div class="cookie-box0">
-          <h1>Vi respekterer beskyttelse af personoplysninger</h1>
-          <p>Med din tilladelse kan vi og vores partnere bruge præcise geoplaceringsoplysninger og identifikation gennem
-            enhedsscanning. Du kan klikke her for at acceptere vores og vores partneres behandling, som beskrevet
-            ovenfor. Alternativt kan du få adgang til mere detaljerede oplysninger og ændre dine præferencer, før du
-            samtykker eller nægter samtykke. Bemærk, at nogle former for behandling af dine personoplysninger muligvis
-            ikke kræver dit samtykke, men du har ret til at gøre indsigelse mod sådan behandling. Dine præferencer
-            gælder for en gruppe websteder. Du kan til enhver tid ændre dine præferencer ved at vende tilbage til dette
-            websted eller ved at besøge vores politik for beskyttelse af personoplysninger.</p>
-          <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
+        <div class="cookie-box2">
+          <h1>Ønsker du at acceptere cookies?</h1>
+          <p></p>
+          <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
             {{ form|crispy }}
             <input type="hidden" name="flag" value="0" />
             <div class="d-flex justify-content-center">
-              <input type="submit" value="Acceptér alle" class="btn btn-success my-2">
+              <input type="submit" value="Helt sikkert" class="btn btn-warning my-2">
             </div>
           </form>
-          <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
+          <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
             {{ form|crispy }}
             <input type="hidden" name="flag" value="1" />
             <div class="d-flex justify-content-center">
-              <input type="submit" value="Frabed alle" class="btn btn-danger my-2">
+              <input type="submit" value="Helt sikkert ikke" class="btn btn-Secondary my-2">
             </div>
           </form>
         </div>

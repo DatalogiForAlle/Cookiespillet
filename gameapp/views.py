@@ -43,7 +43,6 @@ def home(request):
 
     context = add_context_for_join_form({"form": form}, request)
     return render(request, "home.html", context)
-    # return render(request, "home.html")
 
 
 @login_required(redirect_field_name="home")
@@ -78,8 +77,6 @@ def monitor(request, game_id):
 
 def play(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
-    # student = get_object_or_404(Student, name=name)
-    # student = game.active_students().filter(name=name)
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
@@ -110,13 +107,6 @@ def join_game(request):
         request.session["student_id"] = new_student.pk
         request.session["username"] = form.cleaned_data["name"]
         request.session["game_id"] = form.cleaned_data["game_id"]
-
-        ## If player joins a game in round n>0, create 'forced trades' for round 0,1,..,n-1
-        # if game.round > 0:
-        #    for round_num in range(game.round):
-        #        create_forced_trade(
-        #            trader=new_player, round_num=round_num, is_new_player=True
-        #        )
 
         # After joining the game, the player is redirected to the play page
         return redirect(reverse("play", args=(game.game_id,)))
@@ -161,9 +151,7 @@ def update_score(student):
     student.save()
 
 
-# def cookie0(request, name):
 def cookie0(request):
-    # student = get_object_or_404(Student, name=name)
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
@@ -183,9 +171,7 @@ def cookie0(request):
         return reverse("home")
 
 
-# def cookieX(request, name):
 def cookieX(request):
-    # student = get_object_or_404(Student, name=name)
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
@@ -210,9 +196,7 @@ def cookieX(request):
     return render(request, template, context)
 
 
-# def cookie_end_screen(request, name):
 def cookie_end_screen(request):
-    # student = get_object_or_404(Student, name=name)
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
@@ -234,3 +218,7 @@ def cookie_end_screen(request):
 
     update_score(student)
     return render(request, "cookies/cookie_end_screen.html", context)
+
+
+def cookieTester(request):
+    return render(request, "cookies/cookieTester.html")
