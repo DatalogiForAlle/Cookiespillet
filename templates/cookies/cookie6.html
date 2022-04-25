@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/cookiebox.css' %}" rel="stylesheet" />
+
+
+
+  <title>CookieSpillet!</title>
+</head>
+
+
+<body class="cookie6">
+
+
+  <div class="cookie-consent"> <span>Denne side bruger cookies til at forbedre brugeroplevelsen. Se<a href="#"
+        class="ml-1 text-decoration-none">Privatlivspolitikken</a> </span>
+    <div class="mt-2 d-flex align-items-center justify-content-center g-2">
+      <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="flag" value="1" />
+
+        <input type="submit" value="Frabed" class="allow-button mr-1">
+
+      </form>
+      <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="flag" value="0" />
+
+        <input type="submit" value="Tillad" class="allow-button">
+
+      </form>
+    </div>
+  </div>
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+</body>
+
+</html>

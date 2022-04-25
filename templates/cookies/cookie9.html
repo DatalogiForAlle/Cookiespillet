@@ -19,22 +19,22 @@
 </head>
 
 
-<body class="cookie10">
+<body class="cookie9">
 
 
   <div class="cookie-consent"> <span>Denne side bruger cookies til at forbedre brugeroplevelsen. Se<a href="#"
         class="ml-1 text-decoration-none">Privatlivspolitikken</a> </span>
     <div class="mt-2 d-flex align-items-center justify-content-center g-2">
-      <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="0" />
-
-        <input type="submit" value="Ja" class="reject-button mr-1">
-
-      </form>
-      <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
+      <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
         <input type="hidden" name="flag" value="1" />
 
-        <input type="submit" value="Nej" class="allow-button">
+        <input type="submit" value="Frabed" class="allow-button mr-1">
+
+      </form>
+      <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="flag" value="0" />
+
+        <input type="submit" value="Tillad" class="allow-button">
 
       </form>
     </div>

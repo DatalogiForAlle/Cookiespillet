@@ -30,14 +30,14 @@
         <div class="cookie-box2">
           <h1>Ønsker du at acceptere cookies?</h1>
           <p></p>
-          <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
+          <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
             {{ form|crispy }}
             <input type="hidden" name="flag" value="0" />
             <div class="d-flex justify-content-center">
               <input type="submit" value="Helt sikkert" class="btn btn-warning my-2">
             </div>
           </form>
-          <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
+          <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
             {{ form|crispy }}
             <input type="hidden" name="flag" value="1" />
             <div class="d-flex justify-content-center">
