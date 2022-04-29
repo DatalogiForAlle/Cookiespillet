@@ -1,0 +1,103 @@
+/*Bruges til #6*/
+body::before {
+    content: "";
+    background: url("../images/6.png") 50% 0 no-repeat fixed;
+    background-color: #cccccc;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.2;
+}
+
+.cookie-consent {
+    position: fixed;
+    width: 260px;
+    padding-top: 7px;
+    height: 110px;
+    color: #fff;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    background: #292929;
+    z-index: 120;
+    cursor: pointer;
+    border-radius: 3px
+}
+
+.allow-button {
+    height: 20px;
+    width: 104px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 10px;
+    border-radius: 3px;
+    border: 1px solid green;
+    background-color: green
+}
+
+/*simple3 og simple4*/
+.allow-button.red {
+    border: 1px solid red;
+    background-color: red;
+}
+
+
+
+/*
+POSITIONING OF COOKIES IN THE CLASS SIMPLE:
+TL TM TR 
+ML MM MR 
+BL BM BR 
+*/
+
+.cookie-consent.TL {
+    top: 8px;
+    left: 20px;
+}
+
+.cookie-consent.TM {
+    top: 8px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.cookie-consent.TR {
+    top: 8px;
+    right: 20px;
+}
+
+.cookie-consent.ML {
+    top: 45vh;
+    left: 20px;
+}
+
+.cookie-consent.MM {
+    top: 45vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.cookie-consent.MR {
+    top: 45vh;
+    right: 20px;
+}
+
+.cookie-consent.BL {
+    bottom: 8px;
+    left: 20px;
+}
+
+.cookie-consent.BM {
+    bottom: 8px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.cookie-consent.BR {
+    bottom: 8px;
+    right: 20px;
+}
