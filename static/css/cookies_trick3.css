@@ -1,0 +1,33 @@
+/*Bruges til trick3*/
+.trick3::before {
+    content: "";
+    background: url("../images/9.png") 50% 0 no-repeat fixed;
+    background-color: #cccccc;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.2;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #1a0dab;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.no-text {
+    background: none;
+    border: none;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hidden-form-link {
+    display: inline-block;
+}

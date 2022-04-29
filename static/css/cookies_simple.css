@@ -46,6 +46,71 @@ body::before {
 }
 
 
+/*Bruges til simple_diff1 og simple_diff2 */
+.simple_diff1::before,
+.simple_diff2::before {
+    content: "";
+    background: url("../images/8.png") 50% 0 no-repeat fixed;
+    background-color: #cccccc;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.2;
+}
+
+.simple_diff1 .allow-button,
+.simple_diff2 .allow-button {
+    width: 220px;
+}
+
+.simple_diff1 .reject-button,
+.simple_diff2 .reject-button {
+    width: 32px;
+    color: #fff;
+    border: 1px solid #292929;
+    background-color: #292929;
+}
+
+
+/*Bruges til trick3*/
+.trick3::before {
+    content: "";
+    background: url("../images/9.png") 50% 0 no-repeat fixed;
+    background-color: #cccccc;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.2;
+}
+
+.link-button {
+    background: none;
+    border: none;
+    color: #1a0dab;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.no-text {
+    background: none;
+    border: none;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.hidden-form-link {
+    display: inline-block;
+}
+
+
+
 
 /*
 POSITIONING OF COOKIES IN THE CLASS SIMPLE:
