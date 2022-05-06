@@ -1,16 +1,5 @@
 /*Bruges til #6*/
-body::before {
-    content: "";
-    background: url("../images/6.png") 50% 0 no-repeat fixed;
-    background-color: #cccccc;
-    background-size: cover;
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 0.2;
-}
+
 
 .cookie-consent {
     position: fixed;

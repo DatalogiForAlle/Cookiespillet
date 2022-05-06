@@ -1,5 +1,4 @@
 {% load static %}
-{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,62 +9,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- Bootstrap CSS -->
-  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-  <link href="{% static 'css/cookiebox.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/cookies_simple.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/img.css' %}" rel="stylesheet" />
 
-
-
-  <title>Cookiespillet!</title>
+  <title>CookieSpillet!</title>
 </head>
 
 
+<body class="simple4 img8">
+  <div class="cookie-consent ML"> <span>Denne side bruger cookies til at forbedre brugeroplevelsen. Se<a href="#"
+        class="ml-1 text-decoration-none">Privatlivspolitikken</a> </span>
+    <div class="mt-2 d-flex align-items-center justify-content-center g-2">
+      <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="flag" value="0" />
 
-<body class="cookie1">
-  <div class="container">
-    <div class="row justify-content-md-center">
-      <div class="col col-lg-2">
-      </div>
-      <div class="col-md-auto">
-        <div class="cookie-box1">
-          <h3>Vi passer på dine data</h3>
-          <p>Vi indsamler oplysninger om dine besøg ved hjælp af cookies for at måle, hvordan du bliver
-            brugt, så vi kan udvikle indhold og funktioner. Vi indsamler også oplysninger om dine
-            præferencer for at give dig en bedre brugeroplevelse og vise indhold, der er relevant for dig.
+        <input type="submit" value="Tillad" class="allow-button red mr-1">
 
-            Vi bruger egne cookies og cookies fra tredjepart. Tredjepart kan anvende cookiedata til
-            målrettet markedsføring på egne og andres platforme. Du kan til- og fravælge cookies herunder og
-            altid se og ændre dine indstillinger i cookiepolitikken. Se hvordan vi behandler
-            personoplysninger i privatlivspolitikken</p>
-          <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
-            {{ form|crispy }}
-            <input type="hidden" name="flag" value="1" />
-            <div class="d-flex justify-content-center">
-              <input type="submit" value="Nej Tak" class="btn btn-success my-2">
-            </div>
-          </form>
-          <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
-            {{ form|crispy }}
-            <input type="hidden" name="flag" value="0" />
-            <div class="d-flex justify-content-center">
-              <input type="submit" value="Ja tak" class="btn btn-danger my-2">
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="col col-lg-2">
-      </div>
+      </form>
+      <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="flag" value="1" />
+
+        <input type="submit" value="Frabed" class="allow-button">
+
+      </form>
     </div>
   </div>
-  </div>
 
 
-  <!-- Bootstrap Bundle with Popper 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-    crossorigin="anonymous"></script>
--->
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </body>
 

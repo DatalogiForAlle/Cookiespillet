@@ -1,7 +1,7 @@
 /*Bruges til trick3*/
 .trick3::before {
     content: "";
-    background: url("../images/9.png") 50% 0 no-repeat fixed;
+    background: url(../images/1.png) no-repeat center center fixed;
     background-color: #cccccc;
     background-size: cover;
     position: absolute;
