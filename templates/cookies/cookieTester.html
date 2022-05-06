@@ -1,46 +1,75 @@
+{% extends "_base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}CookieSpillet{% endblock %}
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+{% block content %}
 
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-  <link href="{% static 'css/cookies_trick3.css' %}" rel="stylesheet" />
-  <link href="{% static 'css/img.css' %}" rel="stylesheet" />
+<h4 class="mb-4">CookieSpillet gennemført!</h4>
 
-  <title>CookieSpillet!</title>
-</head>
+<p>Tillykke! Du har navigeret i gennem alle dialogbokse, se din score på tavlen!</p>
 
-<body class="trick3 img9">
-  <div class="d-flex justify-content-center mt-5 h-100">
-    <div class="d-flex align-items-center align-self-center card p-3 text-center cookies"><img
-        src="https://i.imgur.com/Tl8ZBUe.png" width="50"><span class="mt-2">Vi bruger cookies til at personligegøre din
-        oplevelse på vores hjemmeside. Vi videresælger dine data til diverse samarbejdspartnere og oversøiske
-        interessenter. Tryk på<form class="hidden-form-link" action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
-          <input type="hidden" name="flag" value="0" />
-          <input type="submit" value="nej" class="no-text" />
-        </form>hvis du ønsker at frabede dig dette.</span>
-      <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="0" />
-        <input type="submit" value="Læs mere" class="link-button" />
-      </form>
-      <form action="{% url 'cookie_end_screen' %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="0" />
-        <input type="submit" value="Okay" class="btn btn-dark mt-3 px-4">
-      </form>
+{% endblock content %}
+
+
+
+{% block footer %}
+
+<footer id="footer" class="bg-light" style="position:absolute; bottom:0; width:100%;">
+  <!-- footer when size >= large -->
+  <nav class="py-3 d-none d-lg-block bg-light">
+    <div class="container">
+      <div class="d-flex text-center justify-content-between flex-row">
+        <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+            class="pt-4 pb-5 pb-md-0" width="240" alt="dataekspeditioner-logo"></a>
+        <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-5" width="310"
+            alt="Københavns Universitet"></a>
+        <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}"
+            class="pt-1 pr-3" width="110" alt="Novo Nordisk Fonden"></a>
+      </div>
     </div>
+  </nav>
+
+  <!-- footer when small <= size < largen -->
+  <div class="d-none d-sm-block d-lg-none">
+    <nav class="py-4 px-sm-5 bg-light">
+      <div class="d-flex justify-content-between flex-row bg-light">
+        <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+            class="pt-3 pl-3" width="150" alt="dataekspeditioner-logo"></a>
+        <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-2" width="150"
+            alt="Københavns Universitet"></a>
+        <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}" class="pr-3"
+            width="80" alt="Novo Nordisk Fonden"></a>
+      </div>
+    </nav>
   </div>
 
+  <!-- footer when size < small -->
+  <div class="d-sm-none">
+    <nav class="py-4 px-sm-5 bg-light">
+      <div class="d-flex justify-content-between flex-row bg-light">
+        <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+            class="pt-2 pl-2" width="130" alt="dataekspeditioner-logo"></a>
+        <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-2" width="120"
+            alt="Københavns Universitet"></a>
+        <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}" class="pr-3"
+            width="70" alt="Novo Nordisk Fonden"></a>
+      </div>
+    </nav>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</footer>
 
-</body>
+{% endblock footer %}
 
-</html>
+{% block javascript%}
+
+{% if request.session.game_id %}
+<script>
+  // if client has already joined a game, fill out name field
+  document.getElementById('id_name').value = "{{ request.session.username }}"
+</script>
+{% endif %}
+
+{% endblock javascript%}
