@@ -116,13 +116,13 @@ def join_game(request):
 
 
 @require_GET
-@login_required
+# @login_required
 def student_table(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
 
     # If user is not the creator of the game, redirect to home page
-    if not request.user == game.created_by:
-        return HttpResponseRedirect(reverse("home"))
+    # if not request.user == game.created_by:
+    #    return HttpResponseRedirect(reverse("home"))
 
     return render(request, "student_table.html", {"game": game})
 
@@ -196,7 +196,16 @@ def cookieX(request):
     return render(request, template, context)
 
 
-def cookie_end_screen(request):
+def cookie_end_screen(request, game_id):
+    game = get_object_or_404(Game, game_id=game_id)
+    try:
+        flag = int(request.POST["flag"])
+        if flag == 1:
+            game.game_started = True
+            game.save()
+    except KeyError:
+        print("Where is my flag?")
+
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
@@ -214,6 +223,8 @@ def cookie_end_screen(request):
 
     context = {
         "student_name": student.name,
+        "game": game,
+        "game_id": game_id,
     }
 
     update_score(student)

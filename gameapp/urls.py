@@ -15,5 +15,9 @@ urlpatterns = [
     ##Cookies:
     path("cookie0/", views.cookie0, name="cookie0"),
     path("cookieX/", views.cookieX, name="cookieX"),
-    path("cookie_end_screen/", views.cookie_end_screen, name="cookie_end_screen"),
+    path(
+        "<game_id>/cookie_end_screen/",
+        views.cookie_end_screen,
+        name="cookie_end_screen",
+    ),
 ]

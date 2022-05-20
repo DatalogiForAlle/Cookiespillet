@@ -8,7 +8,20 @@
 
 <h4 class="mb-4">CookieSpillet gennemført!</h4>
 
-<p>Tillykke! Du har navigeret i gennem alle dialogbokse, se din score på tavlen!</p>
+<p>Tillykke! Du har navigeret i gennem alle dialogbokse, se din score! Undgik du alle cookies?</p>
+
+<div id="student_table" class="mb-3">
+  {% include 'student_table.html' %}
+</div>
+
+<!-- Update student status table every x seconds.  -->
+
+<div 
+hx-get="{% url 'student_table' game.game_id %}"
+hx-trigger="every 1s"
+hx-target="#student_table">
+</div>
+
 
 {% endblock content %}
 
@@ -65,11 +78,12 @@
 
 {% block javascript%}
 
+<!--
 {% if request.session.game_id %}
 <script>
   // if client has already joined a game, fill out name field
   document.getElementById('id_name').value = "{{ request.session.username }}"
 </script>
 {% endif %}
-
+-->
 {% endblock javascript%}
