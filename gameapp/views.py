@@ -88,7 +88,7 @@ def play(request, game_id):
         "student_name": student.name,
     }
     if game.game_started == True:
-        return redirect(reverse("cookie0", args=()), context)
+        return redirect(reverse("cookie0", args=(game_id,)), context)
 
     return render(request, "play.html", context)
 
@@ -151,7 +151,7 @@ def update_score(student):
     student.save()
 
 
-def cookie0(request):
+def cookie0(request, game_id):
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
@@ -165,17 +165,18 @@ def cookie0(request):
 
         context = {
             "student_name": student.name,
+            "game_id": game_id,
         }
         return render(request, "cookies/cookie0.html", context)
     else:
         return reverse("home")
 
 
-def cookieX(request):
+def cookieX(request, game_id):
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
-        # if not trader in session return to home:
+        # if not student in session return to home:
         return redirect(reverse("home"))
 
     try:
@@ -189,6 +190,7 @@ def cookieX(request):
 
     context = {
         "student_name": student.name,
+        "game_id": game_id,
     }
     template = "cookies/cookie" + str(student.current_cookie) + ".html"
     student.current_cookie += 1
@@ -224,7 +226,7 @@ def cookie_end_screen(request, game_id):
     context = {
         "student_name": student.name,
         "game": game,
-        "game_id": game_id,
+        # "game_id": game_id,
     }
 
     update_score(student)
