@@ -1,4 +1,4 @@
-Cookiespillet: 
+CookieSpillet: 
 --------------------------------------------------------
 Dette spil er udviklet på Københavns Universitet. 
 

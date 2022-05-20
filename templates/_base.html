@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Cookiespillet | {% block title %}{% endblock %}</title>
+    <title>CookieSpillet | {% block title %}{% endblock %}</title>
     <!-- Favicon-->
     <!-- <link rel="icon" type="image/x-icon" href="assets/favicon.ico" /> -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
@@ -26,7 +26,7 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
                 <div class="container">
-                    <a class="navbar-brand" href="{% url 'home' %}">Cookiespillet</a>
+                    <a class="navbar-brand" href="{% url 'home' %}">CookieSpillet</a>
                     {% if user.is_authenticated %}
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
                         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
