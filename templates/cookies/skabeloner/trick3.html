@@ -26,11 +26,11 @@
           <input type="hidden" name="flag" value="0" />
           <input type="submit" value="nej" class="no-text" />
         </form>hvis du ønsker at frabede dig dette.</span>
-      <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
+      <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
         <input type="hidden" name="flag" value="0" />
         <input type="submit" value="Læs mere" class="link-button" />
       </form>
-      <form action="{% url 'cookieX' %}" method="post">{% csrf_token %}
+      <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
         <input type="hidden" name="flag" value="0" />
         <input type="submit" value="Okay" class="btn btn-dark mt-3 px-4">
       </form>
