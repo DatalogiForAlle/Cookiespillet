@@ -233,5 +233,19 @@ def cookie_end_screen(request, game_id):
     return render(request, "cookies/cookie_end_screen.html", context)
 
 
-def cookieTester(request):
-    return render(request, "cookies/cookieTester.html")
+@login_required
+def cookie_overview(request):
+    return render(request, "cookies/cookie_overview.html")
+
+
+# def cookieTester(request):
+#    return render(request, "cookies/cookieTester.html")
+
+
+def cookieTester(request, game_id):
+
+    context = {
+        "game_id": game_id,
+    }
+
+    return render(request, "cookies/cookieTester.html", context)
