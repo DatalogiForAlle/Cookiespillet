@@ -1,5 +1,5 @@
 ## ----------------------------------------------------------------------------------
-## Makefile for "CookieSpillet"
+## Makefile for "Cookie-Spillet"
 ##
 ## Used for both development and production. Command "make" shows all make-commands. 
 ## See targets below.

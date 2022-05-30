@@ -6,7 +6,7 @@
 {% user_display user as user_display %}
 
 Du modtager denne email fordi brugeren {{ user_display }} har angivet din email-adresse 
-for at oprette en konto på CookieSpillet.dk.
+for at oprette en konto på cookie-spillet.dataekspeditioner.dk
 
 Hvis dette er korrekt, kan du bekræfte på {{ activate_url }}.
 
