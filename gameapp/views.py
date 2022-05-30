@@ -211,7 +211,7 @@ def cookie_end_screen(request, game_id):
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
-        # if not trader in session return to home:
+        # if not student in session return to home:
         return redirect(reverse("home"))
 
     try:
@@ -236,10 +236,6 @@ def cookie_end_screen(request, game_id):
 @login_required
 def cookie_overview(request):
     return render(request, "cookies/cookie_overview.html")
-
-
-# def cookieTester(request):
-#    return render(request, "cookies/cookieTester.html")
 
 
 def cookieTester(request, game_id):
