@@ -6,6 +6,11 @@ from . import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("cookie_overview/", views.cookie_overview, name="cookie_overview"),
+    path(
+        "<game_id>/cookie_error_overview/",
+        views.cookie_error_overview,
+        name="cookie_error_overview",
+    ),
     path("<game_id>/cookieTester/", views.cookieTester, name="cookieTester"),
     path("create_game/", views.create_game, name="create_game"),
     path("join_game/", views.join_game, name="join_game"),

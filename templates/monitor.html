@@ -20,13 +20,14 @@
             <input type="submit" value="Start Spil!" class="btn btn-primary my-2">
         </div>
     </form>
-    </div>
+</div>
 {% endif %}
 
 <!-- Buttons -->
 <div class="d-flex justify-content-center">
     {% if not game.game_started %}
-    <a class="btn btn-primary" data-toggle="collapse" href="#collapseJoin" role="button" aria-expanded="false" aria-controls="collapseJoin">
+    <a class="btn btn-primary" data-toggle="collapse" href="#collapseJoin" role="button" aria-expanded="false"
+        aria-controls="collapseJoin">
         Inviter spillere
     </a>
     {% endif %}
@@ -34,12 +35,13 @@
 
 
 <!-- Join Link Collapse Content-->
-<div class="collapse my-1" id="collapseJoin" >
+<div class="collapse my-1" id="collapseJoin">
     <div class="card card-body">
         <p class="mb-1">Spillere kan tilslutte sig spillet på denne adresse: </p>
         <div class="d-flex">
-            <input class="form-control" type="text" 
-                value="{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{% url 'home' %}?game_id={{ game.game_id }}" id="join_link" style="width:350px">
+            <input class="form-control" type="text"
+                value="{% if request.is_secure %}https{% else %}http{% endif %}://{{ request.get_host }}{% url 'home' %}?game_id={{ game.game_id }}"
+                id="join_link" style="width:350px">
             <button class="btn btn-primary btn-sm" onclick="copy_join_link()">Kopier</button>
         </div>
     </div>
@@ -54,21 +56,24 @@
     {% endif %}
     <span class="text-black-50">
         {% if game.game_started %}
-            [Spillet er startet]
+        [Spillet er startet]
         {% endif %}
     </span>
-</h4> 
+</h4>
+<p>Alle spillere, ordnet efter deres score.</p>
+<a class="pr-2" href="{% url 'cookie_error_overview' game_id %}">
+    <button class="btn btn-primary">
+        Se oversigt over fejl
+    </button>
+</a>
 
 <div id="student_table" class="mb-3">
     {% include 'student_table.html' %}
 </div>
 
 <!-- Update student status table every x seconds. Will only trigger next round when given criteria are met -->
-  
-<div 
-hx-get="{% url 'student_table' game.game_id %}"
-hx-trigger="every 1s"
-hx-target="#student_table">
+
+<div hx-get="{% url 'student_table' game.game_id %}" hx-trigger="every 1s" hx-target="#student_table">
 </div>
 
 {% endblock content %}

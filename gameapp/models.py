@@ -55,6 +55,18 @@ class Game(models.Model):
         ).order_by("-score")
         return active_students
 
+    errors_cookie_1 = models.IntegerField(default=0)
+    errors_cookie_2 = models.IntegerField(default=0)
+    errors_cookie_3 = models.IntegerField(default=0)
+    errors_cookie_4 = models.IntegerField(default=0)
+    errors_cookie_5 = models.IntegerField(default=0)
+    errors_cookie_6 = models.IntegerField(default=0)
+    errors_cookie_7 = models.IntegerField(default=0)
+    errors_cookie_8 = models.IntegerField(default=0)
+    errors_cookie_9 = models.IntegerField(default=0)
+    errors_cookie_10 = models.IntegerField(default=0)
+    errors_cookie_11 = models.IntegerField(default=0)
+
 
 class Student(models.Model):
     context_object_name = "Student"

@@ -173,6 +173,8 @@ def cookie0(request, game_id):
 
 
 def cookieX(request, game_id):
+    game = get_object_or_404(Game, game_id=game_id)
+
     try:
         student = Student.objects.get(id=request.session["student_id"])
     except:
@@ -185,6 +187,7 @@ def cookieX(request, game_id):
             student.correct_cookies += 1
         else:
             student.wrong_cookies += 1
+        update_total_errors(student.current_cookie, game)
     except KeyError:
         print("Where is my flag?")
 
@@ -220,6 +223,7 @@ def cookie_end_screen(request, game_id):
             student.correct_cookies += 1
         else:
             student.wrong_cookies += 1
+            update_total_errors(student.current_cookie, game)
     except KeyError:
         print("Where is my flag?")
 
@@ -238,6 +242,26 @@ def cookie_overview(request):
     return render(request, "cookies/cookie_overview.html")
 
 
+@login_required
+def cookie_error_overview(request, game_id):
+    game = get_object_or_404(Game, game_id=game_id)
+    context = {
+        "game_id": game_id,
+        "errors1": game.errors_cookie_1,
+        "errors2": game.errors_cookie_2,
+        "errors3": game.errors_cookie_3,
+        "errors4": game.errors_cookie_4,
+        "errors5": game.errors_cookie_5,
+        "errors6": game.errors_cookie_6,
+        "errors7": game.errors_cookie_7,
+        "errors8": game.errors_cookie_8,
+        "errors9": game.errors_cookie_9,
+        "errors10": game.errors_cookie_10,
+        "errors11": game.errors_cookie_11,
+    }
+    return render(request, "cookie_error_overview.html", context)
+
+
 def cookieTester(request, game_id):
 
     context = {
@@ -245,3 +269,78 @@ def cookieTester(request, game_id):
     }
 
     return render(request, "cookies/cookieTester.html", context)
+
+
+def update_total_errors(current_cookie, game):
+    temp = current_cookie - 1
+    if (
+        (temp) == 0
+        or (temp) == 1
+        or (temp) == 5
+        or (temp) == 8
+        or (temp) == 10
+        or (temp) == 20
+        or (temp) == 23
+        or (temp) == 31
+        or (temp) == 49
+        or (temp) == 56
+    ):
+        game.errors_cookie_1 += 1
+    elif (
+        (temp) == 2
+        or (temp) == 4
+        or (temp) == 9
+        or (temp) == 15
+        or (temp) == 18
+        or (temp) == 22
+        or (temp) == 26
+        or (temp) == 45
+    ):
+        game.errors_cookie_2 += 1
+    elif (
+        (temp) == 3
+        or (temp) == 6
+        or (temp) == 11
+        or (temp) == 13
+        or (temp) == 21
+        or (temp) == 32
+        or (temp) == 33
+        or (temp) == 35
+        or (temp) == 36
+        or (temp) == 39
+        or (temp) == 44
+    ):
+        game.errors_cookie_3 += 1
+    elif (
+        (temp) == 7
+        or (temp) == 12
+        or (temp) == 19
+        or (temp) == 25
+        or (temp) == 30
+        or (temp) == 34
+        or (temp) == 38
+        or (temp) == 53
+    ):
+        game.errors_cookie_4 += 1
+    elif (
+        (temp) == 16
+        or (temp) == 17
+        or (temp) == 24
+        or (temp) == 27
+        or (temp) == 37
+        or (temp) == 42
+    ):
+        game.errors_cookie_5 += 1
+    elif (temp) == 14 or (temp) == 40 or (temp) == 52:
+        game.errors_cookie_6 += 1
+    elif (temp) == 28 or (temp) == 41 or (temp) == 46:
+        game.errors_cookie_7 += 1
+    elif (temp) == 29 or (temp) == 43 or (temp) == 48 or (temp) == 55:
+        game.errors_cookie_8 += 1
+    elif (temp) == 47 or (temp) == 51:
+        game.errors_cookie_9 += 1
+    elif (temp) == 50 or (temp) == 54:
+        game.errors_cookie_10 += 1
+    elif (temp) == 57:
+        game.errors_cookie_11 += 1
+    game.save()
