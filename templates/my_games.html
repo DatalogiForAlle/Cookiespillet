@@ -43,6 +43,17 @@
             {% endfor %}
         </table>
     </div>
+    <div>
+        <br/>
+        <p>Opret et spil, hvis du ønsker at være game master for et spil med andre deltagere: </p>
+                    <div class="d-flex justify-content-center mb-4">
+                        <a class="pr-2" href="{% url 'create_game' %}">
+                            <button class="btn btn-primary">
+                                Opret nyt spil
+                            </button>
+                        </a>
+                    </div>
+    </div>
 
     <form id="delete_game_form" action="" method="POST">
         {% csrf_token %}
