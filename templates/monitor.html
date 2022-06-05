@@ -60,12 +60,15 @@
         {% endif %}
     </span>
 </h4>
-<p>Alle spillere, ordnet efter deres score.</p>
-<a class="pr-2" href="{% url 'cookie_error_overview' game_id %}">
-    <button class="btn btn-primary">
-        Se oversigt over fejl
-    </button>
-</a>
+<div class="d-flex justify-content-center mb-4">
+    <a class="pr-2" href="{% url 'cookie_error_overview' game_id %}">
+        <button class="btn btn-primary">
+            Se oversigt over fejl
+        </button>
+    </a>
+</div>
+<p>Alle spillere, ordnet efter deres score:</p>
+
 
 <div id="student_table" class="mb-3">
     {% include 'student_table.html' %}

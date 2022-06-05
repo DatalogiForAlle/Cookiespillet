@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from multiprocessing import context
 from django.urls import reverse, reverse_lazy
 from django.shortcuts import (
     render,
@@ -52,6 +53,22 @@ def create_game(request):
     new_game.save()
 
     return redirect(reverse("monitor", args=(new_game.game_id,)))
+
+
+@login_required
+def my_games(request):
+
+    if request.method == "POST":
+        delete_game_id = request.POST["delete_game_id"]
+        game = get_object_or_404(Game, game_id=delete_game_id)
+        # game.deleted = True
+        # game.save()
+        game.delete()
+        return HttpResponseRedirect(reverse("my_games"))
+
+    games = Game.objects.filter(created_by=request.user).order_by("-created_at")
+
+    return render(request, "my_games.html", {"games": games})
 
 
 def monitor(request, game_id):
