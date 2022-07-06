@@ -1,0 +1,97 @@
+.cookie-consent {
+    position: fixed;
+    width: 320px;
+    padding-top: 7px;
+    height: 110px;
+    color: blue;
+    line-height: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 16px;
+    background: white;
+    z-index: 120;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+.x-button {
+    height: 20px;
+    width: 104px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 10px;
+    border-radius: 3px;
+    border: 1px solid green;
+    background-color: blue
+}
+
+.y-button {
+    height: 20px;
+    width: 104px;
+    color: blue;
+    font-size: 12px;
+    line-height: 10px;
+    border-radius: 3px;
+    border: 1px solid blue;
+    background-color: white
+}
+
+p {
+    opacity: 8%;
+}
+
+/*
+POSITIONING OF COOKIES IN THE CLASS SIMPLE:
+TL TM TR 
+ML MM MR 
+BL BM BR 
+*/
+
+.cookie-consent.TL {
+    top: 8px;
+    left: 20px;
+}
+
+.cookie-consent.TM {
+    top: 8px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.cookie-consent.TR {
+    top: 8px;
+    right: 20px;
+}
+
+.cookie-consent.ML {
+    top: 45vh;
+    left: 20px;
+}
+
+.cookie-consent.MM {
+    top: 45vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.cookie-consent.MR {
+    top: 45vh;
+    right: 20px;
+}
+
+.cookie-consent.BL {
+    bottom: 8px;
+    left: 20px;
+}
+
+.cookie-consent.BM {
+    bottom: 8px;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.cookie-consent.BR {
+    bottom: 8px;
+    right: 20px;
+}

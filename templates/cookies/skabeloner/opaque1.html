@@ -20,18 +20,22 @@
 
 <body class="opaque1 img1">
   <div class="cookie-consent MM"> 
-    <span>Må denne side bruge dine lokationsdata?</span>
-    <p>Modsiger du dig brugen af dine data?</p>
+    <span>Fejl! Denne cookie vil ikke indlæse.</span>
+    <p>Tryk "Indlæs igen" for at acceptere brugen af cookies</p>
     <div class="mt-2 d-flex align-items-center justify-content-center g-2">
       <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="0" />
-        <input type="submit" value="Nej" class="y-button">
+        <input type="hidden" name="flag" value="1" />
+
+        <input type="submit" value="X" class="x-button mr-1">
+
       </form>
       <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="1" />
-        <input type="submit" value="Ja" class="x-button mr-1">
+        <input type="hidden" name="flag" value="0" />
+
+        <input type="submit" value="Indlæs igen" class="y-button">
+
       </form>
-    </div>  
+    </div>
   </div>
 
 
