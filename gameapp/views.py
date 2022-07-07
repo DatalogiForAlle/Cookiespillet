@@ -200,11 +200,12 @@ def cookieX(request, game_id):
 
     try:
         flag = int(request.POST["flag"])
+        template = int(request.POST["template"])
         if flag == 1:
             student.correct_cookies += 1
         else:
             student.wrong_cookies += 1
-        update_total_errors(student.current_cookie, game)
+        update_total_errors(template, game)
     except KeyError:
         print("Where is my flag?")
 
@@ -222,9 +223,13 @@ def cookie_end_screen(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
     try:
         flag = int(request.POST["flag"])
+        template = int(request.POST["template"])
         if flag == 1:
             game.game_started = True
             game.save()
+        else:
+            student.wrong_cookies += 1
+            update_total_errors(template, game)
     except KeyError:
         print("Where is my flag?")
 
@@ -275,6 +280,11 @@ def cookie_error_overview(request, game_id):
         "errors9": game.errors_cookie_9,
         "errors10": game.errors_cookie_10,
         "errors11": game.errors_cookie_11,
+        "errors12": game.errors_cookie_12,
+        "errors13": game.errors_cookie_13,
+        "errors14": game.errors_cookie_14,
+        "errors15": game.errors_cookie_15,
+        "errors16": game.errors_cookie_16,
     }
     return render(request, "cookie_error_overview.html", context)
 
@@ -288,6 +298,43 @@ def cookieTester(request, game_id):
     return render(request, "cookies/cookieTester.html", context)
 
 
+def update_total_errors(error_on_cookie, game):
+    if error_on_cookie == 1:
+        game.errors_cookie_1 += 1
+    elif error_on_cookie == 2:
+        game.errors_cookie_2 += 1
+    elif error_on_cookie == 3:
+        game.errors_cookie_3 += 1
+    elif error_on_cookie == 4:
+        game.errors_cookie_4 += 1
+    elif error_on_cookie == 5:
+        game.errors_cookie_5 += 1
+    elif error_on_cookie == 6:
+        game.errors_cookie_6 += 1
+    elif error_on_cookie == 7:
+        game.errors_cookie_7 += 1
+    elif error_on_cookie == 8:
+        game.errors_cookie_8 += 1
+    elif error_on_cookie == 9:
+        game.errors_cookie_9 += 1
+    elif error_on_cookie == 10:
+        game.errors_cookie_10 += 1
+    elif error_on_cookie == 11:
+        game.errors_cookie_11 += 1
+    elif error_on_cookie == 12:
+        game.errors_cookie_12 += 1
+    elif error_on_cookie == 13:
+        game.errors_cookie_13 += 1
+    elif error_on_cookie == 14:
+        game.errors_cookie_14 += 1
+    elif error_on_cookie == 15:
+        game.errors_cookie_15 += 1
+    elif error_on_cookie == 16:
+        game.errors_cookie_16 += 1
+    game.save()
+
+
+"""
 def update_total_errors(current_cookie, game):
     temp = current_cookie - 1
     if (
@@ -361,3 +408,4 @@ def update_total_errors(current_cookie, game):
     elif (temp) == 57:
         game.errors_cookie_11 += 1
     game.save()
+"""

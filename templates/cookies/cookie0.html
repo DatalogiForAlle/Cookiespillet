@@ -24,15 +24,13 @@
     <div class="mt-2 d-flex align-items-center justify-content-center g-2">
       <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
         <input type="hidden" name="flag" value="1" />
-
+        <input type="hidden" name="template" value="1" />
         <input type="submit" value="Frabed" class="allow-button mr-1">
-
       </form>
       <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
         <input type="hidden" name="flag" value="0" />
-
+        <input type="hidden" name="template" value="1" />
         <input type="submit" value="Tillad" class="allow-button">
-
       </form>
     </div>
   </div>

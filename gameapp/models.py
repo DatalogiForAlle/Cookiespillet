@@ -66,6 +66,11 @@ class Game(models.Model):
     errors_cookie_9 = models.IntegerField(default=0)
     errors_cookie_10 = models.IntegerField(default=0)
     errors_cookie_11 = models.IntegerField(default=0)
+    errors_cookie_12 = models.IntegerField(default=0)
+    errors_cookie_13 = models.IntegerField(default=0)
+    errors_cookie_14 = models.IntegerField(default=0)
+    errors_cookie_15 = models.IntegerField(default=0)
+    errors_cookie_16 = models.IntegerField(default=0)
 
 
 class Student(models.Model):
