@@ -2,53 +2,53 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Cookie-fej-oversigt{% endblock %}
+{% block title %}Cookie-fejl-oversigt{% endblock %}
 
 {% block content %}
 
-<h4 class="mb-4">Oversigt over fejl på hver type af cookie dialogbokse</h4>
+<h4 class="mb-4">Oversigt over cookie dialogbokse</h4>
 
 
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            Nr 1, fejl: {{ errors1 }}  <br />
+            Nr 1 fejl: {{ errors1 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr1.png' %}" alt="Billede ikke fundet">
             <br />
             <br />
-            Nr 4, fejl: {{ errors4 }} <br />
+            Nr 4 fejl: {{ errors4 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr4.png' %}" alt="Billede ikke fundet">
             <br />
             <br />
-            Nr 7, fejl: {{ errors7 }} <br />
+            Nr 7 fejl: {{ errors7 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr7.png' %}" alt="Billede ikke fundet">
             <br />
             <br />
-            Nr 10, fejl: {{ errors10 }} <br />
+            Nr 10 fejl: {{ errors10 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr10.png' %}" alt="Billede ikke fundet">
         </div>
         <div class="col-sm">
-            Nr 2, fejl: {{ errors2 }} <br />
+            Nr 2 fejl: {{ errors2 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr2.png' %}" alt="Billede ikke fundet">
             <br />
             <br />
-            Nr 5, fejl: {{ errors5 }} <br />
+            Nr 5 fejl: {{ errors5 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr5.png' %}" alt="Billede ikke fundet">
             <br />
             <br />
-            Nr 8, fejl: {{ errors8 }} <br />
+            Nr 8 fejl: {{ errors8 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr8.png' %}" alt="Billede ikke fundet">
         </div>
         <div class="col-sm">
-            Nr 3, fejl: {{ errors3 }} <br />
+            Nr 3 fejl: {{ errors3 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr3.png' %}" alt="Billede ikke fundet">
             <br />
             <br />
-            Nr 6, fejl: {{ errors6 }} <br />
+            Nr 6 fejl: {{ errors6 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr6.png' %}" alt="Billede ikke fundet">
             <br />
             <br />
-            Nr 9, fejl: {{ errors9 }} <br />
+            Nr 9 fejl: {{ errors9 }} <br />
             <img src="{% static 'images/cookie_overview_images/nr9.png' %}" alt="Billede ikke fundet">
         </div>
     </div>
@@ -58,25 +58,25 @@
 <div class="container">
     <div class="row">
         <div class="col-sm">
-            Nr 11 <br />
+            Nr 11 fejl: {{ errors11 }} <br />
             <center>
                 <img src="{% static 'images/cookie_overview_images/opaque1.png' %}" alt="Billede ikke fundet">
             </center>
             <br />
             <br />
-            Nr 13 <br />
+            Nr 13 fejl: {{ errors13 }} <br />
             <center>
                 <img src="{% static 'images/cookie_overview_images/opaque3.png' %}" alt="Billede ikke fundet">
             </center>
         </div>
         <div class="col-sm">
-            Nr 12 <br />
+            Nr 12 fejl: {{ errors12 }} <br />
             <center>
                 <img src="{% static 'images/cookie_overview_images/opaque2.png' %}" alt="Billede ikke fundet">
             </center>
             <br />
             <br />
-            Nr 14 <br />
+            Nr 14 fejl: {{ errors14 }} <br />
             <center>
                 <img src="{% static 'images/cookie_overview_images/opaque4.png' %}" alt="Billede ikke fundet">
             </center>
@@ -85,14 +85,26 @@
     <br />
 </div>
 
+
+
+
 <div>
-    Nr 11, fejl: {{ errors11 }} <br />
+    Nr 15 fejl: {{ errors15 }} <br />
     <img class="nr11-img" src="{% static 'images/cookie_overview_images/nr11.png' %}" alt="Billede ikke fundet">
     <br />
     <br />
     <br />
 </div>
 
+<div>
+    Nr 16 fejl: {{ errors16 }} <br />
+    <center>
+        <img src="{% static 'images/cookie_overview_images/header_footer.png' %}" alt="Billede ikke fundet">
+    </center>
+    <br />
+    <br />
+    <br />
+</div>
 
 {% endblock content %}
 

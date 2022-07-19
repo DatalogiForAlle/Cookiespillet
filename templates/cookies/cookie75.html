@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/cookies_trick3.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/img.css' %}" rel="stylesheet" />
+
+  <title>Cookie-Spillet!</title>
+</head>
+
+<body class="img1">
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">DR</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">NYHEDER <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">DRTV</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">DR LYD</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              MERE
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <form action="{% url 'cookie_end_screen' game_id %}" method="post">{% csrf_token %}
+                <input type="hidden" name="flag" value="0" />
+                <input type="submit" value="Indstillinger" class="no-text" />
+              </form>
+              <form action="{% url 'cookie_end_screen' game_id %}" method="post">{% csrf_token %}
+                <input type="hidden" name="flag" value="1" />
+                <input type="submit" value="Frabed cookies" class="no-text" />
+              </form>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-bottom">
+      <span class="navbar-text">
+        DR indsamler oplysninger om dine besøg ved hjælp af cookies for at måle, hvordan dr.dk bliver brugt, så vi kan
+        udvikle indhold og funktioner.
+      </span>
+      <form action="{% url 'cookie_end_screen' game_id %}" method="post">{% csrf_token %}
+        <input type="hidden" name="flag" value="0" />
+        <input type="submit" value="Acceptér" class="no-text" />
+      </form>
+    </nav>
+  </div>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
+</html>
