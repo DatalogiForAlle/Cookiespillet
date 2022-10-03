@@ -1,6 +1,3 @@
-/*Bruges til #6*/
-
-
 .cookie-consent {
     position: fixed;
     width: 260px;
@@ -15,6 +12,22 @@
     z-index: 120;
     cursor: pointer;
     border-radius: 3px
+}
+
+.dropdown {
+    height: 140px;
+    background: #2e0606;
+}
+
+.allow-button-dropdown {
+    height: 20px;
+    width: 104px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 10px;
+    border-radius: 3px;
+    border: 1px solid grey;
+    background-color: grey
 }
 
 .allow-button {

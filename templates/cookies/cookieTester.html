@@ -11,29 +11,227 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-  <link href="{% static 'css/opaque.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/cookies_simple.css' %}" rel="stylesheet" />
   <link href="{% static 'css/img.css' %}" rel="stylesheet" />
 
   <title>Cookie-Spillet!</title>
 </head>
 
 
-<body id="image" class="opaque1">
-  <div id="position" class="cookie-consent"> 
-    <span>Må denne side bruge dine lokationsdata?</span>
-    <p>Modsiger du dig brugen af dine data?</p>
-    <div class="mt-2 d-flex align-items-center justify-content-center g-2">
-      <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="0" />
-        <input type="submit" value="Nej" class="y-button">
-      </form>
-      <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="1" />
-        <input type="submit" value="Ja" class="x-button mr-1">
-      </form>
-    </div>  
-  </div>
-
+<body id="image" class="trick-dropdown">
+  <div id="position" class="cookie-consent dropdown"> <span>Vælg land for at acceptere vilkår og betingelser, dette inkluderer brugen af cookies. Se<a href="#"
+        class="ml-1 text-decoration-none">Privatlivspolitikken</a> </span>
+        <div class="mt-2 d-flex align-items-center justify-content-center g-2">
+          <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
+            <input type="hidden" name="flag" value=value />
+            <input type="hidden" name="template" value="99" />
+            <label for="Countries">Vælg land:</label>
+            <select name="lande" id="lande">
+            <option value="x">Afghanistan</option>
+            <option value="x">Albania</option>
+            <option value="x">Algeria</option>
+            <option value="x">Andorra</option>
+            <option value="x">Angola</option>
+            <option value="x">Antigua and Barbuda</option>
+            <option value="x">Argentina</option>
+            <option value="x">Armenia</option>
+            <option value="x">Australia</option>
+            <option value="x">Austria</option>
+            <option value="x">Azerbaijan</option>
+            <option value="x">Bahamas</option>
+            <option value="x">Bahrain</option>
+            <option value="x">Bangladesh</option>
+            <option value="x">Barbados</option>
+            <option value="x">Belarus</option>
+            <option value="x">Belgium</option>
+            <option value="x">Belize</option>
+            <option value="x">Benin</option>
+            <option value="x">Bhutan</option>
+            <option value="x">Bolivia</option>
+            <option value="x">Bosnia and Herzegovina</option>
+            <option value="x">Botswana</option>
+            <option value="x">Brazil</option>
+            <option value="x">Brunei</option>
+            <option value="x">Bulgaria</option>
+            <option value="x">Burkina Faso</option>
+            <option value="x">Burundi</option>
+            <option value="x">Cabo Verde</option>
+            <option value="x">Cambodia</option>
+            <option value="x">Cameroon</option>
+            <option value="x">Canada</option>
+            <option value="x">Central African Republic (CAR)</option>
+            <option value="x">Chad</option>
+            <option value="x">Chile</option>
+            <option value="x">China</option>
+            <option value="x">Colombia</option>
+            <option value="x">Comoros</option>
+            <option value="x">Congo, Democratic Republic of the</option>
+            <option value="x">Congo, Republic of the</option>
+            <option value="x">Costa Rica</option>
+            <option value="x">Cote d'Ivoire</option>
+            <option value="x">Croatia</option>
+            <option value="x">Cuba</option>
+            <option value="x">Cyprus</option>
+            <option value="x">Czechia</option>
+            <option value="x">Denmark</option>
+            <option value="x">Djibouti</option>
+            <option value="x">Dominica</option>
+            <option value="x">Dominican Republic</option>
+            <option value="x">Ecuador</option>
+            <option value="x">Egypt</option>
+            <option value="x">El Salvador</option>
+            <option value="x">Equatorial Guinea</option>
+            <option value="x">Eritrea</option>
+            <option value="x">Estonia</option>
+            <option value="x">Eswatini</option>
+            <option value="x">Ethiopia</option>
+            <option value="x">Fiji</option>
+            <option value="x">Finland</option>
+            <option value="x">France</option>
+            <option value="x">Gabon</option>
+            <option value="x">Gambia</option>
+            <option value="x">Georgia</option>
+            <option value="x">Germany</option>
+            <option value="x">Ghana</option>
+            <option value="x">Greece</option>
+            <option value="x">Grenada</option>
+            <option value="x">Guatemala</option>
+            <option value="x">Guinea</option>
+            <option value="x">Guinea-Bissau</option>
+            <option value="x">Guyana</option>
+            <option value="x">Haiti</option>
+            <option value="x">Honduras</option>
+            <option value="x">Hungary</option>
+            <option value="x">Iceland</option>
+            <option value="x">India</option>
+            <option value="x">Indonesia</option>
+            <option value="x">Iran</option>
+            <option value="x">Iraq</option>
+            <option value="x">Ireland</option>
+            <option value="x">Israel</option>
+            <option value="x">Italy</option>
+            <option value="x">Jamaica</option>
+            <option value="x">Japan</option>
+            <option value="x">Jordan</option>
+            <option value="x">Kazakhstan</option>
+            <option value="x">Kenya</option>
+            <option value="x">Kiribati</option>
+            <option value="x">Kosovo</option>
+            <option value="x">Kuwait</option>
+            <option value="x">Kyrgyzstan</option>
+            <option value="x">Laos</option>
+            <option value="x">Latvia</option>
+            <option value="x">Lebanon</option>
+            <option value="x">Lesotho</option>
+            <option value="x">Liberia</option>
+            <option value="x">Libya</option>
+            <option value="x">Liechtenstein</option>
+            <option value="x">Lithuania</option>
+            <option value="x">Luxembourg</option>
+            <option value="x">Madagascar</option>
+            <option value="x">Malawi</option>
+            <option value="x">Malaysia</option>
+            <option value="x">Maldives</option>
+            <option value="x">Mali</option>
+            <option value="x">Malta</option>
+            <option value="x">Marshall Islands</option>
+            <option value="x">Mauritania</option>
+            <option value="x">Mauritius</option>
+            <option value="x">Mexico</option>
+            <option value="x">Micronesia</option>
+            <option value="x">Moldova</option>
+            <option value="x">Monaco</option>
+            <option value="x">Mongolia</option>
+            <option value="x">Montenegro</option>
+            <option value="x">Morocco</option>
+            <option value="x">Mozambique</option>
+            <option value="x">Myanmar</option>
+            <option value="x">Namibia</option>
+            <option value="x">Nauru</option>
+            <option value="x">Nepal</option>
+            <option value="x">Netherlands</option>
+            <option value="1">Nej tak til vilkår og betingelser</option>
+            <option value="x">New Zealand</option>
+            <option value="x">Nicaragua</option>
+            <option value="x">Niger</option>
+            <option value="x">Nigeria</option>
+            <option value="x">North Korea</option>
+            <option value="x">North Macedonia</option>
+            <option value="x">Norway</option>
+            <option value="x">Oman</option>
+            <option value="x">Pakistan</option>
+            <option value="x">Palau</option>
+            <option value="x">Palestine</option>
+            <option value="x">Panama</option>
+            <option value="x">Papua New Guinea</option>
+            <option value="x">Paraguay</option>
+            <option value="x">Peru</option>
+            <option value="x">Philippines</option>
+            <option value="x">Poland</option>
+            <option value="x">Portugal</option>
+            <option value="x">Qatar</option>
+            <option value="x">Romania</option>
+            <option value="x">Russia</option>
+            <option value="x">Rwanda</option>
+            <option value="x">Saint Kitts and Nevis</option>
+            <option value="x">Saint Lucia</option>
+            <option value="x">Saint Vincent and the Grenadines</option>
+            <option value="x">Samoa</option>
+            <option value="x">San Marino</option>
+            <option value="x">Sao Tome and Principe</option>
+            <option value="x">Saudi Arabia</option>
+            <option value="x">Senegal</option>
+            <option value="x">Serbia</option>
+            <option value="x">Seychelles</option>
+            <option value="x">Sierra Leone</option>
+            <option value="x">Singapore</option>
+            <option value="x">Slovakia</option>
+            <option value="x">Slovenia</option>
+            <option value="x">Solomon Islands</option>
+            <option value="x">Somalia</option>
+            <option value="x">South Africa</option>
+            <option value="x">South Korea</option>
+            <option value="x">South Sudan</option>
+            <option value="x">Spain</option>
+            <option value="x">Sri Lanka</option>
+            <option value="x">Sudan</option>
+            <option value="x">Suriname</option>
+            <option value="x">Sweden</option>
+            <option value="x">Switzerland</option>
+            <option value="x">Syria</option>
+            <option value="x">Taiwan</option>
+            <option value="x">Tajikistan</option>
+            <option value="x">Tanzania</option>
+            <option value="x">Thailand</option>
+            <option value="x">Timor-Leste</option>
+            <option value="x">Togo</option>
+            <option value="x">Tonga</option>
+            <option value="x">Trinidad and Tobago</option>
+            <option value="x">Tunisia</option>
+            <option value="x">Turkey</option>
+            <option value="x">Turkmenistan</option>
+            <option value="x">Tuvalu</option>
+            <option value="x">Uganda</option>
+            <option value="x">Ukraine</option>
+            <option value="x">United Arab Emirates (UAE)</option>
+            <option value="x">United Kingdom (UK)</option>
+            <option value="x">United States of America (USA)</option>
+            <option value="x">Uruguay</option>
+            <option value="x">Uzbekistan</option>
+            <option value="x">Vanuatu</option>
+            <option value="x">Vatican City (Holy See)</option>
+            <option value="x">Venezuela</option>
+            <option value="x">Vietnam</option>
+            <option value="x">Yemen</option>
+            <option value="x">Zambia</option>
+            <option value="x">Zimbabwe</option>
+            </select> 
+            <input type="submit" value="Vælg" class="allow-button-dropdown mr-1">
+          </form>
+        </div>
+      </div>
+      
+      
   <script src="/static/js/random.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
