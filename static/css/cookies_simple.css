@@ -14,6 +14,22 @@
     border-radius: 3px
 }
 
+.cookie-consent.checkbox {
+    position: fixed;
+    width: 450px;
+    padding-top: 7px;
+    height: 85px;
+    color: #fff;
+    line-height: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 14px;
+    background: #292929;
+    z-index: 120;
+    cursor: pointer;
+    border-radius: 3px
+}
+
 .dropdown {
     height: 140px;
     background: #2e0606;
@@ -45,6 +61,16 @@
 .allow-button.red {
     border: 1px solid red;
     background-color: red;
+}
+
+.allow-button.grey {
+    border: 1px solid rgb(136, 136, 136);
+    background-color: rgb(136, 136, 136);
+}
+
+.allow-button.darkgreen {
+    border: 1px solid darkgreen;
+    background-color: darkgreen;
 }
 
 
