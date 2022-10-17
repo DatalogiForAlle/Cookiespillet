@@ -42,7 +42,7 @@ checkbox1.addEventListener('change', function () {
     }
     if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) {
         console.log("NO CHECKED BOXES");
-        document.getElementById("send").value = 0;
+        document.getElementById("send").value = 1;
         console.log(document.getElementById("send").value)
     }
 });
@@ -70,7 +70,7 @@ checkbox2.addEventListener('change', function () {
     }
     if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) {
         console.log("NO CHECKED BOXES");
-        document.getElementById("send").value = 0;
+        document.getElementById("send").value = 1;
         console.log(document.getElementById("send").value)
     }
 });
@@ -98,7 +98,7 @@ checkbox3.addEventListener('change', function () {
     }
     if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) {
         console.log("NO CHECKED BOXES");
-        document.getElementById("send").value = 0;
+        document.getElementById("send").value = 1;
         console.log(document.getElementById("send").value)
     }
 });
@@ -126,7 +126,7 @@ checkbox4.addEventListener('change', function () {
     }
     if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) {
         console.log("NO CHECKED BOXES");
-        document.getElementById("send").value = 0;
+        document.getElementById("send").value = 1;
         console.log(document.getElementById("send").value)
     }
 });
@@ -154,7 +154,7 @@ checkbox5.addEventListener('change', function () {
     }
     if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) {
         console.log("NO CHECKED BOXES");
-        document.getElementById("send").value = 0;
+        document.getElementById("send").value = 1;
         console.log(document.getElementById("send").value)
     }
 });
@@ -182,7 +182,7 @@ checkbox6.addEventListener('change', function () {
     }
     if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) {
         console.log("NO CHECKED BOXES");
-        document.getElementById("send").value = 0;
+        document.getElementById("send").value = 1;
         console.log(document.getElementById("send").value)
     }
 });
@@ -210,7 +210,7 @@ checkbox7.addEventListener('change', function () {
     }
     if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) {
         console.log("NO CHECKED BOXES");
-        document.getElementById("send").value = 0;
+        document.getElementById("send").value = 1;
         console.log(document.getElementById("send").value)
     }
 });
@@ -239,7 +239,7 @@ checkbox8.addEventListener('change', function () {
     }
     if (!checkbox1.checked && !checkbox2.checked && !checkbox3.checked && !checkbox4.checked && !checkbox5.checked && !checkbox6.checked && !checkbox7.checked && !checkbox8.checked) {
         console.log("NO CHECKED BOXES");
-        document.getElementById("send").value = 0;
+        document.getElementById("send").value = 1;
         console.log(document.getElementById("send").value)
     }
 });
