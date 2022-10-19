@@ -22,15 +22,15 @@
   <div id="position" class="cookie-consent"> <span>Vil du ungå cookies? Det forringer brugeroplevelsen! Se<a href="#"
         class="ml-1 text-decoration-none">Privatlivspolitikken</a> </span>
     <div class="mt-2 d-flex align-items-center justify-content-center g-2">
-      <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="1" />
-        <input type="hidden" name="template" value="9" />
+      <form action="{% url 'cookieX' game_id %}" id="redirect" method="post">{% csrf_token %}
+        <input type="hidden" name="flag" value="0" />
+        <input type="hidden" name="template" value="6" />
         <input type="submit" value="Nej" class="allow-button red mr-1">
 
       </form>
       <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
-        <input type="hidden" name="flag" value="0" />
-        <input type="hidden" name="template" value="9" />
+        <input type="hidden" name="flag" value="1" />
+        <input type="hidden" name="template" value="6" />
         <input type="submit" value="Ja" class="allow-button">
 
       </form>

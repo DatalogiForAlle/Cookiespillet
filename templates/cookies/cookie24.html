@@ -27,7 +27,7 @@
             <input type="hidden" name="template" value="1" />
             <input type="submit" value="Frabed" class="allow-button mr-1">
           </form>
-          <form action="{% url 'cookie_end_screen' game_id %}" method="post">{% csrf_token %}
+          <form action="{% url 'cookie_end_screen' game_id %}" id="redirect" method="post">{% csrf_token %}
             <input type="hidden" name="flag" value="0" />
             <input type="hidden" name="template" value="1" />
             <input type="submit" value="Tillad" class="allow-button">

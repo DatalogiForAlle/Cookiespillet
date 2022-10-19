@@ -23,26 +23,35 @@
         src="https://i.imgur.com/Tl8ZBUe.png" width="50"><span class="mt-2">Vi bruger cookies til at personligegøre din
         oplevelse på vores hjemmeside. Vi videresælger dine data til diverse samarbejdspartnere og oversøiske
         interessenter. Tryk på<form class="hidden-form-link" action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
-          <input type="hidden" name="flag" value="0" />
-          <input type="hidden" name="template" value="15" />
+          <input type="hidden" name="flag" value="1" />
+          <input type="hidden" name="template" value="7" />
           <input type="submit" value="nej" class="no-text" />
         </form>hvis du ønsker at frabede dig dette.</span>
       <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
         <input type="hidden" name="flag" value="0" />
-        <input type="hidden" name="template" value="15" />
+        <input type="hidden" name="template" value="8" />
         <input type="submit" value="Læs mere" class="link-button" />
       </form>
-      <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
+      <form action="{% url 'cookieX' game_id %}" id="redirect" method="post">{% csrf_token %}
         <input type="hidden" name="flag" value="0" />
-        <input type="hidden" name="template" value="15" />
+        <input type="hidden" name="template" value="8" />
         <input type="submit" value="Okay" class="btn btn-dark mt-3 px-4">
       </form>
     </div>
   </div>
 
-
+  
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script>
+    console.log("Hello There")
+    function your_func() {
+      document.getElementById("redirect").value = 0;
+      document.getElementById("redirect").submit();
+    }
+    setTimeout(function () { your_func(); }, 45000);
+  </script>
 
 </body>
 

@@ -21,7 +21,7 @@
   <div id="position" class="cookie-consent dropdown"> <span>Vælg land for at acceptere vilkår og betingelser, dette inkluderer brugen af cookies. Se<a href="#"
         class="ml-1 text-decoration-none">Privatlivspolitikken</a> </span>
         <div class="mt-2 d-flex align-items-center justify-content-center g-2">
-          <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
+          <form action="{% url 'cookieX' game_id %}" id="redirect" method="post">{% csrf_token %}
             <label for="Countries">Vælg land:</label>
             <select name="flag">
             <option value="0">Afghanistan</option>
@@ -223,7 +223,7 @@
             <option value="0">Zambia</option>
             <option value="0">Zimbabwe</option>
             </select> 
-            <input type="hidden" name="template" value="99" />
+            <input type="hidden" name="template" value="10" />
             <input type="submit" value="Vælg" class="allow-button-dropdown mr-1">
           </form>
         </div>

@@ -19,9 +19,9 @@
 <body id="image" class="trick_spam">
   <div id="position" class="cookie-consent trick_spam MM"> <span>Tryk "OK" for at undgå brugen af cookies.</span>
         <div class="mt-2 d-flex align-items-center justify-content-center g-2">
-          <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
+          <form action="{% url 'cookieX' game_id %}" id="redirect" method="post">{% csrf_token %}
             <input type="hidden" name="flag" value="1" />
-            <input type="hidden" name="template" value="99" />
+            <input type="hidden" name="template" value="12" />
             <input type="submit" value="OK" class="allow-button grey mr-1">
           </form>
         </div>

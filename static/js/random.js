@@ -6,3 +6,13 @@ const random2 = Math.floor(Math.random() * positions.length);
 
 document.getElementById("image").className += images[random];
 document.getElementById("position").className += positions[random2];
+
+
+console.log("Hello There")
+
+function your_func() {
+    document.getElementById("redirect").value = 0;
+    document.getElementById("redirect").submit();
+}
+
+setTimeout(function () { your_func(); }, 45000);

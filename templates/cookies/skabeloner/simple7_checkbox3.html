@@ -42,12 +42,12 @@
         <div class="mt-2 d-flex align-items-center justify-content-center g-2">
           <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
             <input type="hidden" name="flag" id="send" value="0" />
-            <input type="hidden" name="template" value="99" />
+            <input type="hidden" name="template" value="5" />
             <input type="submit" value="Tillad valgte" class="allow-button grey">
           </form>
-          <form action="{% url 'cookieX' game_id %}" method="post">{% csrf_token %}
+          <form action="{% url 'cookieX' game_id %}" id="redirect" method="post">{% csrf_token %}
             <input type="hidden" name="flag" value="0" />
-            <input type="hidden" name="template" value="99" />
+            <input type="hidden" name="template" value="5" />
             <input type="submit" value="Tillad alle" class="allow-button darkgreen mr-1">
           </form>
         </div>

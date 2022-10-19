@@ -21,9 +21,9 @@
     <span>Vi bruger cookies for at forbedre din oplevelse på hjemmesiden!</span>
     <p>Lad være med at acceptere hvis du vil undgå brugen af cookies.</p>
     <div class="mt-2 d-flex align-items-center justify-content-center g-2">
-      <form action="{% url 'cookieX' game_id %}" id="send" method="post">{% csrf_token %}
+      <form action="{% url 'cookieX' game_id %}" id="redirect" id="send" method="post">{% csrf_token %}
         <input type="hidden" name="flag" value="0" />
-        <input type="hidden" name="template" value="99" />
+        <input type="hidden" name="template" value="11" />
         <input type="submit" value="Acceptér" class="y-button">
       </form>
     </div>
