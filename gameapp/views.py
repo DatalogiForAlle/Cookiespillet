@@ -222,6 +222,12 @@ def cookieX(request, game_id):
 def cookie_end_screen(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
     try:
+        student = Student.objects.get(id=request.session["student_id"])
+    except:
+        # if not student in session return to home:
+        return redirect(reverse("home"))
+
+    try:
         flag = int(request.POST["flag"])
         template = int(request.POST["template"])
         if flag == 1:
@@ -232,12 +238,6 @@ def cookie_end_screen(request, game_id):
             update_total_errors(template, game)
     except KeyError:
         print("Where is my flag?")
-
-    try:
-        student = Student.objects.get(id=request.session["student_id"])
-    except:
-        # if not student in session return to home:
-        return redirect(reverse("home"))
 
     try:
         flag = int(request.POST["flag"])
@@ -294,7 +294,6 @@ def cookieTester(request, game_id):
     context = {
         "game_id": game_id,
     }
-
     return render(request, "cookies/cookieTester.html", context)
 
 

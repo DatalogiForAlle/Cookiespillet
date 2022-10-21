@@ -8,7 +8,6 @@ document.getElementById("image").className += images[random];
 document.getElementById("position").className += positions[random2];
 
 
-console.log("Hello There")
 
 function your_func() {
     document.getElementById("redirect").value = 0;

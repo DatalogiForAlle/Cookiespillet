@@ -47,7 +47,7 @@ class Game(models.Model):
 
     def active_students(self):
         """
-        Returns a query set of all active traders on the market.
+        Returns a query set of all active students on the market.
         A trader is 'active' if he has not declared bankruptcy and has not been removed from the market.
         """
         active_students = Student.objects.filter(
