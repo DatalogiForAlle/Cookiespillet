@@ -10,7 +10,6 @@ document.getElementById("position").className += positions[random2];
 
 
 function your_func() {
-    document.getElementById("redirect").value = 0;
     document.getElementById("redirect").submit();
 }
 
