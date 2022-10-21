@@ -7,17 +7,11 @@ var checkbox6 = document.querySelector("input[name=f]");
 var checkbox7 = document.querySelector("input[name=g]");
 var checkbox8 = document.querySelector("input[name=h]");
 
-checkbox1.checked = true
-checkbox2.checked = false
-checkbox3.checked = false
-checkbox4.checked = true
-checkbox5.checked = true
-checkbox6.checked = false
-checkbox7.checked = true
-checkbox8.checked = false
-
-
 var list = [checkbox1, checkbox2, checkbox3, checkbox4, checkbox5, checkbox6, checkbox7, checkbox8]
+
+for (var i = 0; i < list.length; i++) {
+    list[i].checked = (Math.random() < 0.5);
+}
 
 checkbox1.addEventListener('change', function () {
     console.log("Change seen")
