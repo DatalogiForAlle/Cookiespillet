@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/cookies_simple.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/img.css' %}" rel="stylesheet" />
+  <title>Cookie-Spillet!</title>
+</head>
+<body id="image" class="trick4_checkbox">
+  <div id="position" class="cookie-consent trick_checkbox"> 
+    <span>
+      Fjern markeringerne for at fravælge cookies:
+
+    <div>
+      <input type="checkbox" name="a">
+      &emsp;
+      <input type="checkbox" name="b">
+      &emsp;
+      <input type="checkbox" name="c">
+      &emsp;
+      <input type="checkbox" name="d">
+      &emsp;
+      <input type="checkbox" name="e">
+      &emsp;
+      <input type="checkbox" name="f">
+      &emsp;
+      <input type="checkbox" name="g">
+      &emsp;
+      <input type="checkbox" name="h">
+    </div>
+
+
+        <div class="mt-2 d-flex align-items-center justify-content-center g-2">
+          <form action="{% url "display_test" %}" id="redirect" method="post">{% csrf_token %}
+            <input type="hidden" name="flag" id="send" value="0" />
+            <input type="hidden" name="template" value="14" />
+            <input type="submit" value="Vælg" class="allow-button grey">
+          </form>
+        </div>
+      </div>
+
+
+  <script src="/static/js/random_display.js"></script>
+  <script src="/static/js/trick_checkbox.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

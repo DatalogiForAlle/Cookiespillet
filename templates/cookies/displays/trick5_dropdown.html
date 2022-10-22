@@ -1,0 +1,239 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/cookies_simple.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/img.css' %}" rel="stylesheet" />
+
+  <title>Cookie-Spillet!</title>
+</head>
+
+<body id="image" class="trick-dropdown">
+  <div id="position" class="cookie-consent dropdown"> <span>Vælg land for at acceptere vilkår og betingelser, dette inkluderer brugen af cookies. Se<a href="#"
+        class="ml-1 text-decoration-none">Privatlivspolitikken</a> </span>
+        <div class="mt-2 d-flex align-items-center justify-content-center g-2">
+          <form action="{% url "display_test" %}" id="redirect" method="post">{% csrf_token %}
+            <label for="Countries">Vælg land:</label>
+            <select name="flag">
+            <option value="0">Afghanistan</option>
+            <option value="0">Albania</option>
+            <option value="0">Algeria</option>
+            <option value="0">Andorra</option>
+            <option value="0">Angola</option>
+            <option value="0">Antigua and Barbuda</option>
+            <option value="0">Argentina</option>
+            <option value="0">Armenia</option>
+            <option value="0">Australia</option>
+            <option value="0">Austria</option>
+            <option value="0">Azerbaijan</option>
+            <option value="0">Bahamas</option>
+            <option value="0">Bahrain</option>
+            <option value="0">Bangladesh</option>
+            <option value="0">Barbados</option>
+            <option value="0">Belarus</option>
+            <option value="0">Belgium</option>
+            <option value="0">Belize</option>
+            <option value="0">Benin</option>
+            <option value="0">Bhutan</option>
+            <option value="0">Bolivia</option>
+            <option value="0">Bosnia and Herzegovina</option>
+            <option value="0">Botswana</option>
+            <option value="0">Brazil</option>
+            <option value="0">Brunei</option>
+            <option value="0">Bulgaria</option>
+            <option value="0">Burkina Faso</option>
+            <option value="0">Burundi</option>
+            <option value="0">Cabo Verde</option>
+            <option value="0">Cambodia</option>
+            <option value="0">Cameroon</option>
+            <option value="0">Canada</option>
+            <option value="0">Central African Republic (CAR)</option>
+            <option value="0">Chad</option>
+            <option value="0">Chile</option>
+            <option value="0">China</option>
+            <option value="0">Colombia</option>
+            <option value="0">Comoros</option>
+            <option value="0">Congo, Democratic Republic of the</option>
+            <option value="0">Congo, Republic of the</option>
+            <option value="0">Costa Rica</option>
+            <option value="0">Cote d'Ivoire</option>
+            <option value="0">Croatia</option>
+            <option value="0">Cuba</option>
+            <option value="0">Cyprus</option>
+            <option value="0">Czechia</option>
+            <option value="0">Denmark</option>
+            <option value="0">Djibouti</option>
+            <option value="0">Dominica</option>
+            <option value="0">Dominican Republic</option>
+            <option value="0">Ecuador</option>
+            <option value="0">Egypt</option>
+            <option value="0">El Salvador</option>
+            <option value="0">Equatorial Guinea</option>
+            <option value="0">Eritrea</option>
+            <option value="0">Estonia</option>
+            <option value="0">Eswatini</option>
+            <option value="0">Ethiopia</option>
+            <option value="0">Fiji</option>
+            <option value="0">Finland</option>
+            <option value="0">France</option>
+            <option value="0">Gabon</option>
+            <option value="0">Gambia</option>
+            <option value="0">Georgia</option>
+            <option value="0">Germany</option>
+            <option value="0">Ghana</option>
+            <option value="0">Greece</option>
+            <option value="0">Grenada</option>
+            <option value="0">Guatemala</option>
+            <option value="0">Guinea</option>
+            <option value="0">Guinea-Bissau</option>
+            <option value="0">Guyana</option>
+            <option value="0">Haiti</option>
+            <option value="0">Honduras</option>
+            <option value="0">Hungary</option>
+            <option value="0">Iceland</option>
+            <option value="0">India</option>
+            <option value="0">Indonesia</option>
+            <option value="0">Iran</option>
+            <option value="0">Iraq</option>
+            <option value="0">Ireland</option>
+            <option value="0">Israel</option>
+            <option value="0">Italy</option>
+            <option value="0">Jamaica</option>
+            <option value="0">Japan</option>
+            <option value="0">Jordan</option>
+            <option value="0">Kazakhstan</option>
+            <option value="0">Kenya</option>
+            <option value="0">Kiribati</option>
+            <option value="0">Kosovo</option>
+            <option value="0">Kuwait</option>
+            <option value="0">Kyrgyzstan</option>
+            <option value="0">Laos</option>
+            <option value="0">Latvia</option>
+            <option value="0">Lebanon</option>
+            <option value="0">Lesotho</option>
+            <option value="0">Liberia</option>
+            <option value="0">Libya</option>
+            <option value="0">Liechtenstein</option>
+            <option value="0">Lithuania</option>
+            <option value="0">Luxembourg</option>
+            <option value="0">Madagascar</option>
+            <option value="0">Malawi</option>
+            <option value="0">Malaysia</option>
+            <option value="0">Maldives</option>
+            <option value="0">Mali</option>
+            <option value="0">Malta</option>
+            <option value="0">Marshall Islands</option>
+            <option value="0">Mauritania</option>
+            <option value="0">Mauritius</option>
+            <option value="0">Mexico</option>
+            <option value="0">Micronesia</option>
+            <option value="0">Moldova</option>
+            <option value="0">Monaco</option>
+            <option value="0">Mongolia</option>
+            <option value="0">Montenegro</option>
+            <option value="0">Morocco</option>
+            <option value="0">Mozambique</option>
+            <option value="0">Myanmar</option>
+            <option value="0">Namibia</option>
+            <option value="0">Nauru</option>
+            <option value="0">Nepal</option>
+            <option value="0">Netherlands</option>
+            <option value="1">Nej tak til vilkår og betingelser</option>
+            <option value="0">New Zealand</option>
+            <option value="0">Nicaragua</option>
+            <option value="0">Niger</option>
+            <option value="0">Nigeria</option>
+            <option value="0">North Korea</option>
+            <option value="0">North Macedonia</option>
+            <option value="0">Norway</option>
+            <option value="0">Oman</option>
+            <option value="0">Pakistan</option>
+            <option value="0">Palau</option>
+            <option value="0">Palestine</option>
+            <option value="0">Panama</option>
+            <option value="0">Papua New Guinea</option>
+            <option value="0">Paraguay</option>
+            <option value="0">Peru</option>
+            <option value="0">Philippines</option>
+            <option value="0">Poland</option>
+            <option value="0">Portugal</option>
+            <option value="0">Qatar</option>
+            <option value="0">Romania</option>
+            <option value="0">Russia</option>
+            <option value="0">Rwanda</option>
+            <option value="0">Saint Kitts and Nevis</option>
+            <option value="0">Saint Lucia</option>
+            <option value="0">Saint Vincent and the Grenadines</option>
+            <option value="0">Samoa</option>
+            <option value="0">San Marino</option>
+            <option value="0">Sao Tome and Principe</option>
+            <option value="0">Saudi Arabia</option>
+            <option value="0">Senegal</option>
+            <option value="0">Serbia</option>
+            <option value="0">Seychelles</option>
+            <option value="0">Sierra Leone</option>
+            <option value="0">Singapore</option>
+            <option value="0">Slovakia</option>
+            <option value="0">Slovenia</option>
+            <option value="0">Solomon Islands</option>
+            <option value="0">Somalia</option>
+            <option value="0">South Africa</option>
+            <option value="0">South Korea</option>
+            <option value="0">South Sudan</option>
+            <option value="0">Spain</option>
+            <option value="0">Sri Lanka</option>
+            <option value="0">Sudan</option>
+            <option value="0">Suriname</option>
+            <option value="0">Sweden</option>
+            <option value="0">Switzerland</option>
+            <option value="0">Syria</option>
+            <option value="0">Taiwan</option>
+            <option value="0">Tajikistan</option>
+            <option value="0">Tanzania</option>
+            <option value="0">Thailand</option>
+            <option value="0">Timor-Leste</option>
+            <option value="0">Togo</option>
+            <option value="0">Tonga</option>
+            <option value="0">Trinidad and Tobago</option>
+            <option value="0">Tunisia</option>
+            <option value="0">Turkey</option>
+            <option value="0">Turkmenistan</option>
+            <option value="0">Tuvalu</option>
+            <option value="0">Uganda</option>
+            <option value="0">Ukraine</option>
+            <option value="0">United Arab Emirates (UAE)</option>
+            <option value="0">United Kingdom (UK)</option>
+            <option value="0">United States of America (USA)</option>
+            <option value="0">Uruguay</option>
+            <option value="0">Uzbekistan</option>
+            <option value="0">Vanuatu</option>
+            <option value="0">Vatican City (Holy See)</option>
+            <option value="0">Venezuela</option>
+            <option value="0">Vietnam</option>
+            <option value="0">Yemen</option>
+            <option value="0">Zambia</option>
+            <option value="0">Zimbabwe</option>
+            </select> 
+            <input type="hidden" name="template" value="10" />
+            <input type="submit" value="Vælg" class="allow-button-dropdown mr-1">
+          </form>
+        </div>
+      </div>
+      
+      
+  <script src="/static/js/random_display.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
+</html> 

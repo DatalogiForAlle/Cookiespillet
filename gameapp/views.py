@@ -10,6 +10,7 @@ from django.shortcuts import (
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import DeleteView
 from django.views.decorators.http import require_GET, require_POST
+from django.views.decorators.clickjacking import xframe_options_exempt
 from .forms import StudentForm
 from .models import Game, Student
 
@@ -264,6 +265,7 @@ def cookie_overview(request):
     return render(request, "cookies/cookie_overview.html")
 
 
+# @xframe_options_exempt
 @login_required
 def cookie_error_overview(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
@@ -287,6 +289,123 @@ def cookie_error_overview(request, game_id):
         "errors16": game.errors_cookie_16,
     }
     return render(request, "cookie_error_overview.html", context)
+
+
+def display1(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/simple1.html", context)
+
+
+def display2(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/opaque1.html", context)
+
+
+def display3(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/opaque3.html", context)
+
+
+def display4(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/simple_diff1.html", context)
+
+
+def display5(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/simple7_checkbox1.html", context)
+
+
+def display6(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick1.html", context)
+
+
+def display7(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick2.html", context)
+
+
+def display8(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick3.html", context)
+
+
+def display9(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick4_header_footer.html", context)
+
+
+def display10(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick5_dropdown.html", context)
+
+
+def display11(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick6_timed.html", context)
+
+
+def display12(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick7_spam.html", context)
+
+
+def display13(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick8_quick.html", context)
+
+
+def display14(request, game_id):
+    context = {
+        "game_id": game_id,
+    }
+    return render(request, "cookies/displays/trick9_checkbox.html", context)
+
+
+def display_test(request):
+    try:
+        flag = int(request.POST["flag"])
+        if flag == 1:
+            print("CORRECT!!!")
+            result = "Korrekt!"
+        else:
+            print("WRONG!!!")
+            result = "Forkert valg :'("
+    except KeyError:
+        print("Where is my flag?")
+
+    context = {
+        "result": result,
+    }
+
+    return render(request, "cookies/displays/display_test.html", context)
 
 
 def cookieTester(request, game_id):

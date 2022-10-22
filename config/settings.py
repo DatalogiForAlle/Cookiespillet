@@ -170,3 +170,6 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = "optional"
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_EMAIL_SUBJECT_PREFIX = "[cookie-spillet.dataekspeditioner.dk]"
+
+# iframe, please consider changing to something more secure
+X_FRAME_OPTIONS = "ALLOW-FROM http://localhost:8000/"
