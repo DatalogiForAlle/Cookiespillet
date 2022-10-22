@@ -265,7 +265,6 @@ def cookie_overview(request):
     return render(request, "cookies/cookie_overview.html")
 
 
-# @xframe_options_exempt
 @login_required
 def cookie_error_overview(request, game_id):
     game = get_object_or_404(Game, game_id=game_id)
@@ -291,6 +290,7 @@ def cookie_error_overview(request, game_id):
     return render(request, "cookie_error_overview.html", context)
 
 
+@xframe_options_exempt
 def display1(request, game_id):
     context = {
         "game_id": game_id,
@@ -298,6 +298,7 @@ def display1(request, game_id):
     return render(request, "cookies/displays/simple1.html", context)
 
 
+@xframe_options_exempt
 def display2(request, game_id):
     context = {
         "game_id": game_id,
@@ -305,6 +306,7 @@ def display2(request, game_id):
     return render(request, "cookies/displays/opaque1.html", context)
 
 
+@xframe_options_exempt
 def display3(request, game_id):
     context = {
         "game_id": game_id,
@@ -312,6 +314,7 @@ def display3(request, game_id):
     return render(request, "cookies/displays/opaque3.html", context)
 
 
+@xframe_options_exempt
 def display4(request, game_id):
     context = {
         "game_id": game_id,
@@ -319,6 +322,7 @@ def display4(request, game_id):
     return render(request, "cookies/displays/simple_diff1.html", context)
 
 
+@xframe_options_exempt
 def display5(request, game_id):
     context = {
         "game_id": game_id,
@@ -326,6 +330,7 @@ def display5(request, game_id):
     return render(request, "cookies/displays/simple7_checkbox1.html", context)
 
 
+@xframe_options_exempt
 def display6(request, game_id):
     context = {
         "game_id": game_id,
@@ -333,6 +338,7 @@ def display6(request, game_id):
     return render(request, "cookies/displays/trick1.html", context)
 
 
+@xframe_options_exempt
 def display7(request, game_id):
     context = {
         "game_id": game_id,
@@ -340,6 +346,7 @@ def display7(request, game_id):
     return render(request, "cookies/displays/trick2.html", context)
 
 
+@xframe_options_exempt
 def display8(request, game_id):
     context = {
         "game_id": game_id,
@@ -347,6 +354,7 @@ def display8(request, game_id):
     return render(request, "cookies/displays/trick3.html", context)
 
 
+@xframe_options_exempt
 def display9(request, game_id):
     context = {
         "game_id": game_id,
@@ -354,6 +362,7 @@ def display9(request, game_id):
     return render(request, "cookies/displays/trick4_header_footer.html", context)
 
 
+@xframe_options_exempt
 def display10(request, game_id):
     context = {
         "game_id": game_id,
@@ -361,6 +370,7 @@ def display10(request, game_id):
     return render(request, "cookies/displays/trick5_dropdown.html", context)
 
 
+@xframe_options_exempt
 def display11(request, game_id):
     context = {
         "game_id": game_id,
@@ -368,6 +378,7 @@ def display11(request, game_id):
     return render(request, "cookies/displays/trick6_timed.html", context)
 
 
+@xframe_options_exempt
 def display12(request, game_id):
     context = {
         "game_id": game_id,
@@ -375,6 +386,7 @@ def display12(request, game_id):
     return render(request, "cookies/displays/trick7_spam.html", context)
 
 
+@xframe_options_exempt
 def display13(request, game_id):
     context = {
         "game_id": game_id,
@@ -382,6 +394,7 @@ def display13(request, game_id):
     return render(request, "cookies/displays/trick8_quick.html", context)
 
 
+@xframe_options_exempt
 def display14(request, game_id):
     context = {
         "game_id": game_id,
