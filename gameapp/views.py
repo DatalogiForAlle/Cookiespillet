@@ -402,6 +402,7 @@ def display14(request, game_id):
     return render(request, "cookies/displays/trick9_checkbox.html", context)
 
 
+@xframe_options_exempt
 def display_test(request):
     try:
         flag = int(request.POST["flag"])
