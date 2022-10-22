@@ -31,3 +31,11 @@
 img.nr11-img {
     width: 100%;
 }
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}

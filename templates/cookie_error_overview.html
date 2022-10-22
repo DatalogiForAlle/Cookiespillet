@@ -2,86 +2,184 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Cookie-fejl-oversigt{% endblock %}
+{% block title %}Oversigt{% endblock %}
 
 {% block content %}
 
-<h4 class="mb-4">Oversigt over cookie dialogbokse</h4>
-
+<h4 class="mb-4">Oversigt over fejl</h4>
+<p>Under kan en oversigt over alle fejl begået af alle spillere ses, det er muligt at genspille hver cookie i det viste
+    vindue. Bemærk at flere af cookie-dialogboksene har flere forskellige varianter, dette kan eksempelvis være knapper
+    som bytter plads, forskellige farver og forskellige
+    tekstbeskrivelser. Ideén med varianterne er at snyde brugeren til at vælge forkert ved hjælp af diverse kneb fra
+    interaktionsdesign.
+</p>
+<p>
+    På denne side vises kun ét eksempel af hver cookie. Blev du snydt af nogen varianter? Hvilke
+    varianter lagde du mærke til?
+</p>
 
 <div class="container">
-    <h5>Nr 1 fejl: {{ errors1 }} </h5>
+    <span class="left">
+        <h5>Nr. 1 fejl: {{ errors1 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 6, antal: 16)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display1' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display1' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 2 fejl: {{ errors2 }} </h5>
+    <span class="left">
+        <h5>Nr. 2 fejl: {{ errors2 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 2, antal: 5)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display2' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display2' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 3 fejl: {{ errors3 }} </h5>
+    <span class="left">
+        <h5>Nr. 3 fejl: {{ errors2 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 2, antal: 4)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display3' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display3' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 4 fejl: {{ errors4 }} </h5>
+    <span class="left">
+        <h5>Nr. 4 fejl: {{ errors4 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 2, antal: 5)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display4' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display4' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 5 fejl: {{ errors5 }} </h5>
+    <span class="left">
+        <h5>Nr. 5 fejl: {{ errors5 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 3, antal: 6)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display5' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display5' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 6 fejl: {{ errors6 }} </h5>
+    <span class="left">
+        <h5>Nr. 6 fejl: {{ errors6 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display6' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display6' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 7 fejl: {{ errors6 }} </h5>
+    <span class="left">
+        <h5>Nr. 7 fejl: {{ errors7 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display7' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display7' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 8 fejl: {{ errors7 }} </h5>
+    <span class="left">
+        <h5>Nr. 8 fejl: {{ errors8 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display8' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display8' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 9 fejl: {{ errors8 }} </h5>
+    <span class="left">
+        <h5>Nr. 9 fejl: {{ errors9 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display9' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display9' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 10 fejl: {{ errors9 }} </h5>
+    <span class="left">
+        <h5>Nr. 10 fejl: {{ errors10 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display10' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display10' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    <h5>Nr 11 fejl: {{ errors10 }} </h5>
+    <span class="left">
+        <h5>Nr. 11 fejl: {{ errors11 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     bla bla timer
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display11' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display11' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
-    
-    <h5>Nr 12 fejl: {{ errors11 }} </h5>
+
+    <span class="left">
+        <h5>Nr. 12 fejl: {{ errors12 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     Bla bla bla pop up
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display12' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display12' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
+    <p>Denne cookie viser 8 dialogbokse ovenpå dit browservindue som hurtigt skal fjernes af spilleren, disse dialogboks
+        er ikke
+        medtaget her.</p>
     <br />
-    <h5>Nr 13 fejl: {{ errors12 }} </h5>
-    Bla bla bla pop up
+    <span class="left">
+        <h5>Nr. 13 fejl: {{ errors13 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display13' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display13' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
+    <p>Denne cookie viser en dialogboks ovenpå dit browservindue med 2 sekunders intervaller for at gøre det svært at
+        trykke "OK", denne dialogboks er ikke
+        medtaget her.</p>
     <br />
-    <h5>Nr 14 fejl: {{ errors13 }} </h5>
+    <span class="left">
+        <h5>Nr. 14 fejl: {{ errors14 }} </h5>
+    </span>
+    <span class="right">
+        <h6>(varianter: 1, antal: 2)</h6>
+    </span>
     <div class="embed-responsive embed-responsive-16by9">
-        <iframe class="embed-responsive-item" src="{% url 'display14' game_id %}"  style="border: 1px solid black;"></iframe>
+        <iframe class="embed-responsive-item" src="{% url 'display14' game_id %}"
+            style="border: 1px solid black;"></iframe>
     </div>
     <br />
     <br />
