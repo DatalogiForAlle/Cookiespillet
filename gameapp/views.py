@@ -260,9 +260,8 @@ def cookie_end_screen(request, game_id):
     return render(request, "cookies/cookie_end_screen.html", context)
 
 
-@login_required
-def cookie_overview(request):
-    return render(request, "cookies/cookie_overview.html")
+def rules(request):
+    return render(request, "rules.html")
 
 
 @login_required

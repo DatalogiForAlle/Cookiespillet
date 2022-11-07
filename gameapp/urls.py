@@ -6,7 +6,7 @@ from . import views
 urlpatterns = [
     path("", views.home, name="home"),
     path("my_games/", views.my_games, name="my_games"),
-    path("cookie_overview/", views.cookie_overview, name="cookie_overview"),
+    path("rules/", views.rules, name="rules"),
     path(
         "<game_id>/cookie_error_overview/",
         views.cookie_error_overview,

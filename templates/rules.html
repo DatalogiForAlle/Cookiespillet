@@ -1,0 +1,85 @@
+{% extends "_base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Regler{% endblock %}
+
+{% block content %}
+
+<h4 class="mb-4">Regler</h4>
+
+<p>Cookie-spillet er et mini-spil om cookie dialogbokse som man møder over alt på internettet. I spillet vil du blive
+    mødt af en masse forskellige cookie dialogbokse, hvor diverse kneb er brugt for at 'snyde' dig til at acceptere
+    brugen af cookies. Du skal forsøge at acceptere så få cookies som muligt, på så lidt tid som muligt.</p>
+
+<p> Selvom de forskellige cookie dialogbokse du bliver presentereret for i spillet er inspireret af rigtige eksempler
+    fundet på diverse hjemmesider, så indsamler Cookie-Spillet ikke nogen personligt identificerbare data om brugerne af
+    hjemmesiden.</p>
+
+<div class="d-flex justify-content-center mb-4">
+    <a class="pr-2" href="{% url 'home' %}">
+        <button class="btn btn-primary">
+            Tilbage til forsiden
+        </button>
+    </a>
+</div>
+
+
+{% endblock content %}
+
+
+
+{% block footer %}
+
+<footer id="footer" class="bg-light" style="position:absolute; bottom:0; width:100%;">
+    <!-- footer when size >= large -->
+    <nav class="py-3 d-none d-lg-block bg-light">
+        <div class="container">
+            <div class="d-flex text-center justify-content-between flex-row">
+                <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+                        class="pt-4 pb-5 pb-md-0" width="240" alt="dataekspeditioner-logo"></a>
+                <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-5"
+                        width="310" alt="Københavns Universitet"></a>
+                <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}"
+                        class="pt-1 pr-3" width="110" alt="Novo Nordisk Fonden"></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- footer when small <= size < largen -->
+    <div class="d-none d-sm-block d-lg-none">
+        <nav class="py-4 px-sm-5 bg-light">
+            <div class="d-flex justify-content-between flex-row bg-light">
+                <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+                        class="pt-3 pl-3" width="150" alt="dataekspeditioner-logo"></a>
+                <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-2"
+                        width="150" alt="Københavns Universitet"></a>
+                <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}"
+                        class="pr-3" width="80" alt="Novo Nordisk Fonden"></a>
+            </div>
+        </nav>
+    </div>
+
+    <!-- footer when size < small -->
+    <div class="d-sm-none">
+        <nav class="py-4 px-sm-5 bg-light">
+            <div class="d-flex justify-content-between flex-row bg-light">
+                <a href="https://dataekspeditioner.dk/"><img src="{% static 'images/dataekspeditioner_sort.png' %}"
+                        class="pt-2 pl-2" width="130" alt="dataekspeditioner-logo"></a>
+                <a href="https://ku.dk"><img src="{% static 'images/ku_logo_dk_hh-300x112.png' %}" class="px-2"
+                        width="120" alt="Københavns Universitet"></a>
+                <a href="https://novonordiskfonden.dk/da/"><img src="{% static 'images/NNF_blue_RGB_solid.png' %}"
+                        class="pr-3" width="70" alt="Novo Nordisk Fonden"></a>
+            </div>
+        </nav>
+    </div>
+
+</footer>
+
+{% endblock footer %}
+
+{% block javascript%}
+
+
+
+{% endblock javascript%}

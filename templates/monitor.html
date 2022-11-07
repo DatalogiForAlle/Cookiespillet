@@ -47,6 +47,16 @@
     </div>
 </div>
 
+<br/>
+
+<div class="d-flex justify-content-center mb-4">
+    <a class="pr-2" href="{% url 'cookie_error_overview' game_id %}">
+        <button class="btn btn-primary">
+            Se oversigt over fejl
+        </button>
+    </a>
+</div>
+
 <!-- Student Status -->
 <h4 class="mt-5">
     {% if game.game_started %}
@@ -60,13 +70,6 @@
         {% endif %}
     </span>
 </h4>
-<div class="d-flex justify-content-center mb-4">
-    <a class="pr-2" href="{% url 'cookie_error_overview' game_id %}">
-        <button class="btn btn-primary">
-            Se oversigt over fejl
-        </button>
-    </a>
-</div>
 <p>Alle spillere, ordnet efter deres score:</p>
 
 
